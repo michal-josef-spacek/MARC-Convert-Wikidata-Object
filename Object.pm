@@ -35,7 +35,7 @@ has isbn_10 => (
 	is => 'ro',
 );
 
-has isbn_12 => (
+has isbn_13 => (
 	is => 'ro',
 );
 
