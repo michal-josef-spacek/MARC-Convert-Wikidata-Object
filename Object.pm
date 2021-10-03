@@ -55,6 +55,7 @@ has publication_date => (
 	is => 'ro',
 );
 
+# TODO Array
 has publisher => (
 	is => 'ro',
 );
