@@ -43,6 +43,11 @@ has language => (
 	is => 'ro',
 );
 
+has krameriuses => (
+	default => [],
+	is => 'ro',
+);
+
 has number_of_pages => (
 	is => 'ro',
 );
@@ -99,6 +104,10 @@ sub BUILD {
 	check_array_object($self, 'illustrators',
 		'MARC::Convert::Wikidata::Object::People', 'Illustrator');
 
+	# Check Kramerius systems.
+	check_array_object($self, 'krameriuses',
+		'MARC::Convert::Wikidata::Object::Kramerius', 'Kramerius');
+
 	# Check translators.
 	check_array_object($self, 'translators',
 		'MARC::Convert::Wikidata::Object::People', 'Translator');
@@ -131,6 +140,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $illustrators_ar = $obj->illustrators;
  my $isbn_10 = $obj->isbn_10;
  my $isbn_13 = $obj->isbn_13;
+ my $kramerius_ar = $obj->krameriuses;
  my $language = $obj->language;
  my $number_of_pages = $obj->number_of_pages;
  my $place_of_publication = $obj->place_of_publication;
@@ -157,7 +167,7 @@ Returns instance of object.
 List of authors.
 Reference to array with MARC::Convert::Wikidata::Object::People instances.
 
-Default value is refernce to blank array.
+Default value is reference to blank array.
 
 =item * C<ccnb>
 
@@ -176,14 +186,14 @@ Default value is undef.
 List of editors.
 Reference to array with MARC::Convert::Wikidata::Object::People instances.
 
-Default value is refernce to blank array.
+Default value is reference to blank array.
 
 =item * C<illustrators>
 
 List of illustrators.
 Reference to array with MARC::Convert::Wikidata::Object::People instances.
 
-Default value is refernce to blank array.
+Default value is reference to blank array.
 
 =item * C<isbn_10>
 
@@ -196,6 +206,13 @@ Default value is undef.
 ISBN identifier with 13 characters (new one version).
 
 Default value is undef.
+
+=item * C<krameriuses>
+
+List of Kramerius systems with digitized scan.
+Reference to array with MARC::Convert::Wikidata::Object::Kramerius instances.
+
+Default value is reference to blank array.
 
 =item * C<language>
 
@@ -244,7 +261,7 @@ Default value is undef.
 List of translators.
 Reference to array with MARC::Convert::Wikidata::Object::People instances.
 
-Default value is refernce to blank array.
+Default value is reference to blank array.
 
 =back
 
@@ -296,6 +313,14 @@ Returns string.
 =head2 C<isbn_13>
 
  my $isbn_13 = $obj->isbn_13;
+
+=head2 c<krameriuses>
+
+ my $kramerius_ar = $obj->krameriuses;
+
+Get reference to array with Kramerius item objects.
+
+Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instances.
 
 =head2 C<language>
 

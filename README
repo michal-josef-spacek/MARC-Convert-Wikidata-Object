@@ -14,6 +14,7 @@ SYNOPSIS
      my $illustrators_ar = $obj->illustrators;
      my $isbn_10 = $obj->isbn_10;
      my $isbn_13 = $obj->isbn_13;
+     my $kramerius_ar = $obj->krameriuses;
      my $language = $obj->language;
      my $number_of_pages = $obj->number_of_pages;
      my $place_of_publication = $obj->place_of_publication;
@@ -36,7 +37,7 @@ METHODS
             List of authors. Reference to array with
             MARC::Convert::Wikidata::Object::People instances.
 
-            Default value is refernce to blank array.
+            Default value is reference to blank array.
 
     *       "ccnb"
 
@@ -55,14 +56,14 @@ METHODS
             List of editors. Reference to array with
             MARC::Convert::Wikidata::Object::People instances.
 
-            Default value is refernce to blank array.
+            Default value is reference to blank array.
 
     *       "illustrators"
 
             List of illustrators. Reference to array with
             MARC::Convert::Wikidata::Object::People instances.
 
-            Default value is refernce to blank array.
+            Default value is reference to blank array.
 
     *       "isbn_10"
 
@@ -75,6 +76,13 @@ METHODS
             ISBN identifier with 13 characters (new one version).
 
             Default value is undef.
+
+    *       "krameriuses"
+
+            List of Kramerius systems with digitized scan. Reference to
+            array with MARC::Convert::Wikidata::Object::Kramerius instances.
+
+            Default value is reference to blank array.
 
     *       "language"
 
@@ -123,7 +131,7 @@ METHODS
             List of translators. Reference to array with
             MARC::Convert::Wikidata::Object::People instances.
 
-            Default value is refernce to blank array.
+            Default value is reference to blank array.
 
   "authors"
      my $authors_ar = $obj->authors;
@@ -164,6 +172,14 @@ METHODS
 
   "isbn_13"
      my $isbn_13 = $obj->isbn_13;
+
+  c<krameriuses>
+     my $kramerius_ar = $obj->krameriuses;
+
+    Get reference to array with Kramerius item objects.
+
+    Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius
+    instances.
 
   "language"
      my $language = $obj->language;
@@ -276,6 +292,6 @@ POD ERRORS
     Hey! The above document had some coding errors, which are explained
     below:
 
-    Around line 280:
+    Around line 296:
         Unknown directive: =head
 
