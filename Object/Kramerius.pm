@@ -15,6 +15,11 @@ has object_id => (
 	is => 'ro',
 );
 
+# TODO Remove if i could construct URL by some method.
+has url => (
+	is => 'ro',
+);
+
 1;
 
 __END__
