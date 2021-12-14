@@ -1,10 +1,10 @@
 use strict;
 use warnings;
 
-use Test::More 'tests' => 3;
-use Test::NoWarnings;
 use MARC::Convert::Wikidata::Object;
 use MARC::Convert::Wikidata::Object::People;
+use Test::More 'tests' => 3;
+use Test::NoWarnings;
 use Unicode::UTF8 qw(decode_utf8);
 
 # Test.

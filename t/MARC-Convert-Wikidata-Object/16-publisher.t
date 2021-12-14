@@ -1,9 +1,9 @@
 use strict;
 use warnings;
 
+use MARC::Convert::Wikidata::Object;
 use Test::More 'tests' => 3;
 use Test::NoWarnings;
-use MARC::Convert::Wikidata::Object;
 use Unicode::UTF8 qw(decode_utf8);
 
 # Test.
