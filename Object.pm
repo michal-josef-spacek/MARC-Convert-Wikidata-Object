@@ -294,7 +294,7 @@ Returns number.
 
  my $editors_ar = $obj->editors;
 
-=head C<full_name>
+=head2 C<full_name>
 
  my $full_name = $obj->full_name;
 

@@ -158,6 +158,7 @@ METHODS
   "editors"
      my $editors_ar = $obj->editors;
 
+  "full_name"
      my $full_name = $obj->full_name;
 
     Get full name of edition in format '__TITLE__: __SUBTITLE__'.
@@ -287,11 +288,4 @@ LICENSE AND COPYRIGHT
 
 VERSION
     0.01
-
-POD ERRORS
-    Hey! The above document had some coding errors, which are explained
-    below:
-
-    Around line 296:
-        Unknown directive: =head
 
