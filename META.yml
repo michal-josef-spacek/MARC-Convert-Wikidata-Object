@@ -19,6 +19,7 @@ meta-spec:
 name: MARC-Convert-Wikidata-Object
 no_index:
   directory:
+    - examples
     - inc
     - t
     - xt
