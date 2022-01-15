@@ -18,11 +18,14 @@ name 'MARC-Convert-Wikidata-Object';
 perl_version 5.006002;
 readme_from 'Object.pm';
 recursive_author_tests('xt');
+requires 'DateTime' => 0;
+requires 'Error::Pure' => 0;
 requires 'Mo' => 0;
 requires 'Mo::Utils' => 0.06;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/MARC-Convert-Wikidata-Object/issues',
 resources 'homepage' => 'https://github.com/michal-josef-spacek/MARC-Convert-Wikidata-Object';
 resources 'repository' => 'git://github.com/michal-josef-spacek/MARC-Convert-Wikidata-Object';
+test_requires 'DateTime' => 0;
 test_requires 'Test::More' => 0;
 test_requires 'Test::NoWarnings' => 0;
 test_requires 'Unicode::UTF8' => 0;

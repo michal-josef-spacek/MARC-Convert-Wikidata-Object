@@ -1,5 +1,7 @@
 Changes
 examples/ex1.pl
+examples/ex3.pl
+examples/ex4.pl
 inc/Module/Install.pm
 inc/Module/Install/AuthorRequires.pm
 inc/Module/Install/AuthorTests.pm
@@ -18,6 +20,7 @@ META.yml
 Object.pm
 Object/Kramerius.pm
 Object/People.pm
+Object/Utils.pm
 README
 t/MARC-Convert-Wikidata-Object-Kramerius/01-use.t
 t/MARC-Convert-Wikidata-Object-Kramerius/02-version.t
@@ -32,6 +35,9 @@ t/MARC-Convert-Wikidata-Object-People/05-date_of_death.t
 t/MARC-Convert-Wikidata-Object-People/06-name.t
 t/MARC-Convert-Wikidata-Object-People/07-nkcr_aut.t
 t/MARC-Convert-Wikidata-Object-People/08-surname.t
+t/MARC-Convert-Wikidata-Object-Utils/01-use.t
+t/MARC-Convert-Wikidata-Object-Utils/02-version.t
+t/MARC-Convert-Wikidata-Object-Utils/03-check_date.t
 t/MARC-Convert-Wikidata-Object/01-use.t
 t/MARC-Convert-Wikidata-Object/02-version.t
 t/MARC-Convert-Wikidata-Object/03-new.t
@@ -56,5 +62,7 @@ xt/MARC-Convert-Wikidata-Object-Kramerius/01-pod_coverage.t
 xt/MARC-Convert-Wikidata-Object-Kramerius/02-pod.t
 xt/MARC-Convert-Wikidata-Object-People/01-pod_coverage.t
 xt/MARC-Convert-Wikidata-Object-People/02-pod.t
+xt/MARC-Convert-Wikidata-Object-Utils/01-pod_coverage.t
+xt/MARC-Convert-Wikidata-Object-Utils/02-pod.t
 xt/MARC-Convert-Wikidata-Object/01-pod_coverage.t
 xt/MARC-Convert-Wikidata-Object/02-pod.t
