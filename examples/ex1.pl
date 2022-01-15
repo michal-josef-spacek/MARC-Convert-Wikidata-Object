@@ -9,21 +9,21 @@ use MARC::Convert::Wikidata::Object::People;
 use Unicode::UTF8 qw(decode_utf8);
 
 my $aut = MARC::Convert::Wikidata::Object::People->new(
-	'date_of_birth' => '1952-12-08',
-	'name' => decode_utf8('Jiří'),
-	'nkcr_aut' => 'jn20000401266',
-	'surname' => 'Jurok',
+        'date_of_birth' => '1952-12-08',
+        'name' => decode_utf8('Jiří'),
+        'nkcr_aut' => 'jn20000401266',
+        'surname' => 'Jurok',
 );
 
 my $obj = MARC::Convert::Wikidata::Object->new(
-	'authors' => [$aut],
-	'ccnb' => 'cnb001188266',
-	'date_of_publication' => 2002,
-	'edition_number' => 2,
-	'isbn-10' => '80-238-9541-9',
-	'number_of_pages' => 414,
-	'place_of_publication' => decode_utf8('Příbor'),
-	'publishers' => [decode_utf8('Město Příbor')],
+        'authors' => [$aut],
+        'ccnb' => 'cnb001188266',
+        'date_of_publication' => 2002,
+        'edition_number' => 2,
+        'isbn-10' => '80-238-9541-9',
+        'number_of_pages' => 414,
+        'place_of_publication' => decode_utf8('Příbor'),
+        'publishers' => [decode_utf8('Město Příbor')],
 );
 
 p $obj;
@@ -43,6 +43,8 @@ p $obj;
 #         isbn-10                "80-238-9541-9",
 #         number_of_pages        414,
 #         place_of_publication   "Příbor",
-#         publisher              "Město Příbor"
+#         publisher              [
+#             [0] "Město Příbor"
+#         ],
 #     }
 # }
