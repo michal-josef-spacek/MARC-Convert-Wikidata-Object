@@ -1,6 +1,7 @@
 TODO
 ====
 2. Check of date_of_birth before date_of_death.
+Implement Utils::check_date_order
 3. Pridat oclc u nekterych to je. (nektera vlastiveda moravska)
 5. more isbn in record
 6. language format
