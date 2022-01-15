@@ -341,9 +341,9 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
 
  my $publication_date = $obj->publication_date;
 
-=head2 C<publisher>
+=head2 C<publishers>
 
- my $publisher = $obj->publisher;
+ my $publishers_ar = $obj->publishers;
 
 =head2 C<subtitle>
 

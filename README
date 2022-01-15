@@ -194,8 +194,8 @@ METHODS
   "publication_date"
      my $publication_date = $obj->publication_date;
 
-  "publisher"
-     my $publisher = $obj->publisher;
+  "publishers"
+     my $publishers_ar = $obj->publishers;
 
   "subtitle"
      my $subtitle = $obj->subtitle;
