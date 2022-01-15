@@ -3,7 +3,8 @@ package MARC::Convert::Wikidata::Object::People;
 use strict;
 use warnings;
 
-use Mo qw(is);
+use MARC::Convert::Wikidata::Object::Utils qw(check_date);
+use Mo qw(build is);
 
 our $VERSION = 0.01;
 
@@ -26,6 +27,15 @@ has nkcr_aut => (
 has surname => (
 	is => 'ro',
 );
+
+sub BUILD {
+	my $self = shift;
+
+	check_date($self, 'date_of_birth');
+	check_date($self, 'date_of_death');
+
+	return;
+}
 
 1;
 
@@ -66,11 +76,15 @@ Returns instance of object.
 
 Date of birth of people.
 
+Parameter is string with date. See L<MARC::Convert::Wikidata::Object::Utils/check_date> for more information.
+
 Default value is undef.
 
 =item * C<date_of_death>
 
 Date of death of people.
+
+Parameter is string with date. See L<MARC::Convert::Wikidata::Object::Utils/check_date> for more information.
 
 Default value is undef.
 
@@ -134,6 +148,15 @@ Get surname.
 
 Returns string.
 
+=head1 ERRORS
+
+ new():
+         From MARC::Convert::Wikidata::Object::Utils::check_date():
+                 Parameter 'date_of_birth' for date is in bad format.
+                 Parameter 'date_of_birth' has year greater than actual year.
+                 Parameter 'date_of_death' for date is in bad format.
+                 Parameter 'date_of_death' has year greater than actual year.
+
 =head1 EXAMPLE1
 
  use strict;
@@ -167,6 +190,7 @@ Returns string.
 
 =head1 DEPENDENCIES
 
+L<MARC::Convert::Wikidata::Object::Utils>,
 L<Mo>.
 
 =head1 SEE ALSO
