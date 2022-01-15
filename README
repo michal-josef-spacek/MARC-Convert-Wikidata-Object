@@ -19,7 +19,7 @@ SYNOPSIS
      my $number_of_pages = $obj->number_of_pages;
      my $place_of_publication = $obj->place_of_publication;
      my $publication_date = $obj->publication_date;
-     my $publisher = $obj->publisher;
+     my $publishers_ar = $obj->publishers;
      my $subtitle = $obj->subtitle;
      my $title = $obj->title;
      my $translators_ar = $obj->translators;
@@ -108,11 +108,11 @@ METHODS
 
             Default value is undef.
 
-    *       "publisher"
+    *       "publishers"
 
-            Publisher.
+            List of Publishers.
 
-            Default value is undef.
+            Default value is [].
 
     *       "subtitle"
 
@@ -242,7 +242,7 @@ EXAMPLE1
             'isbn-10' => '80-238-9541-9',
             'number_of_pages' => 414,
             'place_of_publication' => decode_utf8('Příbor'),
-            'publisher' => decode_utf8('Město Příbor'),
+            'publishers' => [decode_utf8('Město Příbor')],
      );
  
      p $obj;
@@ -262,7 +262,9 @@ EXAMPLE1
      #         isbn-10                "80-238-9541-9",
      #         number_of_pages        414,
      #         place_of_publication   "Příbor",
-     #         publisher              "Město Příbor"
+     #         publisher              [
+     #             [0] "Město Příbor"
+     #         ],
      #     }
      # }
 

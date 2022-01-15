@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Mo qw(build default is);
-use Mo::utils qw(check_array_object);
+use Mo::utils qw(check_array check_array_object);
 
 our $VERSION = 0.01;
 
@@ -60,8 +60,8 @@ has publication_date => (
 	is => 'ro',
 );
 
-# TODO Array
-has publisher => (
+has publishers => (
+	default => [],
 	is => 'ro',
 );
 
@@ -108,6 +108,9 @@ sub BUILD {
 	check_array_object($self, 'krameriuses',
 		'MARC::Convert::Wikidata::Object::Kramerius', 'Kramerius');
 
+	# Check list of publishers.
+	check_array($self, 'publishers');
+
 	# Check translators.
 	check_array_object($self, 'translators',
 		'MARC::Convert::Wikidata::Object::People', 'Translator');
@@ -145,7 +148,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $number_of_pages = $obj->number_of_pages;
  my $place_of_publication = $obj->place_of_publication;
  my $publication_date = $obj->publication_date;
- my $publisher = $obj->publisher;
+ my $publishers_ar = $obj->publishers;
  my $subtitle = $obj->subtitle;
  my $title = $obj->title;
  my $translators_ar = $obj->translators;
@@ -238,11 +241,11 @@ Publication date.
 
 Default value is undef.
 
-=item * C<publisher>
+=item * C<publishers>
 
-Publisher.
+List of Publishers.
 
-Default value is undef.
+Default value is [].
 
 =item * C<subtitle>
 
@@ -392,7 +395,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
  	'isbn-10' => '80-238-9541-9',
  	'number_of_pages' => 414,
  	'place_of_publication' => decode_utf8('Příbor'),
- 	'publisher' => decode_utf8('Město Příbor'),
+ 	'publishers' => [decode_utf8('Město Příbor')],
  );
  
  p $obj;
@@ -412,7 +415,9 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
  #         isbn-10                "80-238-9541-9",
  #         number_of_pages        414,
  #         place_of_publication   "Příbor",
- #         publisher              "Město Příbor"
+ #         publisher              [
+ #             [0] "Město Příbor"
+ #         ],
  #     }
  # }
 

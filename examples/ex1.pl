@@ -23,7 +23,7 @@ my $obj = MARC::Convert::Wikidata::Object->new(
 	'isbn-10' => '80-238-9541-9',
 	'number_of_pages' => 414,
 	'place_of_publication' => decode_utf8('Příbor'),
-	'publisher' => decode_utf8('Město Příbor'),
+	'publishers' => [decode_utf8('Město Příbor')],
 );
 
 p $obj;

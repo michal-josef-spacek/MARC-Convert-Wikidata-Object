@@ -19,7 +19,7 @@ perl_version 5.006002;
 readme_from 'Object.pm';
 recursive_author_tests('xt');
 requires 'Mo' => 0;
-requires 'Mo::Utils' => 0;
+requires 'Mo::Utils' => 0.06;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/MARC-Convert-Wikidata-Object/issues',
 resources 'homepage' => 'https://github.com/michal-josef-spacek/MARC-Convert-Wikidata-Object';
 resources 'repository' => 'git://github.com/michal-josef-spacek/MARC-Convert-Wikidata-Object';

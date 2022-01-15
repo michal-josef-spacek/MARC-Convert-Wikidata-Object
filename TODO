@@ -3,7 +3,6 @@ TODO
 1. doc for People
 2. Check of date_of_birth before date_of_death.
 3. Pridat oclc u nekterych to je. (nektera vlastiveda moravska)
-4. more publishers in record
 5. more isbn in record
 6. language format
 8. Add series object (name + ordinal)
@@ -15,3 +14,6 @@ Applied
 =======
 7. Add kramerius link
 OK [20211214] skim
+
+4. more publishers in record
+OK [20220115] skim
