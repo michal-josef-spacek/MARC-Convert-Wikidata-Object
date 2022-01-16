@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Mo qw(build default is);
-use Mo::utils qw(check_array check_array_object);
+use Mo::utils qw(check_array_object);
 
 our $VERSION = 0.01;
 
@@ -49,10 +49,6 @@ has krameriuses => (
 );
 
 has number_of_pages => (
-	is => 'ro',
-);
-
-has place_of_publication => (
 	is => 'ro',
 );
 
@@ -109,7 +105,8 @@ sub BUILD {
 		'MARC::Convert::Wikidata::Object::Kramerius', 'Kramerius');
 
 	# Check list of publishers.
-	check_array($self, 'publishers');
+	check_array_object($self, 'publishers',
+		'MARC::Convert::Wikidata::Object::Publisher', 'Publisher');
 
 	# Check translators.
 	check_array_object($self, 'translators',
@@ -146,7 +143,6 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $kramerius_ar = $obj->krameriuses;
  my $language = $obj->language;
  my $number_of_pages = $obj->number_of_pages;
- my $place_of_publication = $obj->place_of_publication;
  my $publication_date = $obj->publication_date;
  my $publishers_ar = $obj->publishers;
  my $subtitle = $obj->subtitle;
@@ -229,12 +225,6 @@ Number of pages.
 
 Default value is undef.
 
-=item * C<place_of_publication>
-
-Place of publication.
-
-Default value is undef.
-
 =item * C<publication_date>
 
 Publication date.
@@ -244,6 +234,7 @@ Default value is undef.
 =item * C<publishers>
 
 List of Publishers.
+Reference to array with MARC::Convert::Wikidata::Object::Publisher instances.
 
 Default value is [].
 
@@ -333,10 +324,6 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
 
  my $number_of_pages = $obj->number_of_pages;
 
-=head2 C<place_of_publication>
-
- my $place_of_publication = $obj->place_of_publication;
-
 =head2 C<publication_date>
 
  my $publication_date = $obj->publication_date;
@@ -344,6 +331,8 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
 =head2 C<publishers>
 
  my $publishers_ar = $obj->publishers;
+
+Returns reference to array of MARC::Convert::Wikidata::Object::Publisher instances.
 
 =head2 C<subtitle>
 
@@ -361,13 +350,15 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
 
  new():
          From Mo::utils::check_array_object():
-                 Parameter authors' must be a array.
                  Author isn't 'MARC::Convert::Wikidata::Object::People' object.
-                 Parameter 'editors' must be a array.
                  Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
-                 Parameter 'illustrators' must be a array.
                  Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
+                 Parameter 'authors' must be a array.
+                 Parameter 'editors' must be a array.
+                 Parameter 'illustrators' must be a array.
+                 Parameter 'publishers' must be a array.
                  Parameter 'translators' must be a array.
+                 Publisher isn't 'MARC::Convert::Wikidata::Object::Publisher' object.
                  Translator isn't 'MARC::Convert::Wikidata::Object::People' object.
 
 =head1 EXAMPLE1
@@ -378,6 +369,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
  use Data::Printer;
  use MARC::Convert::Wikidata::Object;
  use MARC::Convert::Wikidata::Object::People;
+ use MARC::Convert::Wikidata::Object::Publisher;
  use Unicode::UTF8 qw(decode_utf8);
  
  my $aut = MARC::Convert::Wikidata::Object::People->new(
@@ -385,6 +377,11 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
          'name' => decode_utf8('Jiří'),
          'nkcr_aut' => 'jn20000401266',
          'surname' => 'Jurok',
+ );
+
+ my $publisher = MARC::Convert::Wikidata::Object::Publisher->new(
+         'name' => decode_utf8('Město Příbor'),
+         'place' => decode_utf8('Příbor'),
  );
  
  my $obj = MARC::Convert::Wikidata::Object->new(
@@ -394,8 +391,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
          'edition_number' => 2,
          'isbn-10' => '80-238-9541-9',
          'number_of_pages' => 414,
-         'place_of_publication' => decode_utf8('Příbor'),
-         'publishers' => [decode_utf8('Město Příbor')],
+         'publishers' => [$publisher],
  );
  
  p $obj;
@@ -406,18 +402,21 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
  #     public methods (7) : BUILD, can (UNIVERSAL), DOES (UNIVERSAL), full_name, check_array_object (Mo::utils), isa (UNIVERSAL), VERSION (UNIVERSAL)
  #     private methods (1) : __ANON__ (Mo::is)
  #     internals: {
- #         authors                [
+ #         authors               [
  #             [0] MARC::Convert::Wikidata::Object::People
  #         ],
- #         ccnb                   "cnb001188266",
- #         date_of_publication    2002,
- #         edition_number         2,
- #         isbn-10                "80-238-9541-9",
- #         number_of_pages        414,
- #         place_of_publication   "Příbor",
- #         publisher              [
- #             [0] "Město Příbor"
+ #         ccnb                  "cnb001188266",
+ #         date_of_publication   2002,
+ #         edition_number        2,
+ #         editors               [],
+ #         illustrators          [],
+ #         isbn-10               "80-238-9541-9",
+ #         krameriuses           [],
+ #         number_of_pages       414,
+ #         publishers            [
+ #             [0] MARC::Convert::Wikidata::Object::Publisher
  #         ],
+ #         translators           []
  #     }
  # }
 

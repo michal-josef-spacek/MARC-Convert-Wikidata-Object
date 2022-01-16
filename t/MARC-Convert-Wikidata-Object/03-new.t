@@ -3,6 +3,7 @@ use warnings;
 
 use MARC::Convert::Wikidata::Object;
 use MARC::Convert::Wikidata::Object::People;
+use MARC::Convert::Wikidata::Object::Publisher;
 use Test::More 'tests' => 3;
 use Test::NoWarnings;
 use Unicode::UTF8 qw(decode_utf8);
@@ -39,6 +40,10 @@ my $translator = MARC::Convert::Wikidata::Object::People->new(
 	'nkcr_aut' => 'jk01121492',
 	'surname' => decode_utf8('Stromšík'),
 );
+my $publisher = MARC::Convert::Wikidata::Object::Publisher->new(
+	'name' => decode_utf8('Fr. Borový'),
+	'place' => 'Praha',
+);
 $obj = MARC::Convert::Wikidata::Object->new(
 	'authors' => [$author],
 	'ccnb' => 'cnb000750997',
@@ -49,9 +54,8 @@ $obj = MARC::Convert::Wikidata::Object->new(
 	'isbn_13' => '978-80-85812-08-4',
 	'language' => 'cze',
 	'number_of_pages' => 10,
-	'place_of_publication' => 'Praha',
 	'publication_date' => 1925,
-	'publisher' => decode_utf8('Fr. Borový'),
+	'publishers' => [$publisher],
 	'subtitle' => decode_utf8('Román'),
 	'title' => 'Krakatit',
 	'translators' => [$translator],
