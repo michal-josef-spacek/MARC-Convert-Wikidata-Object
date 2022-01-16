@@ -3,7 +3,7 @@ package MARC::Convert::Wikidata::Object::People;
 use strict;
 use warnings;
 
-use MARC::Convert::Wikidata::Object::Utils qw(check_date);
+use MARC::Convert::Wikidata::Object::Utils qw(check_date check_date_order);
 use Mo qw(build is);
 
 our $VERSION = 0.01;
@@ -33,6 +33,8 @@ sub BUILD {
 
 	check_date($self, 'date_of_birth');
 	check_date($self, 'date_of_death');
+
+	check_date_order($self, 'date_of_birth', 'date_of_death');
 
 	return;
 }
@@ -156,6 +158,8 @@ Returns string.
                  Parameter 'date_of_birth' has year greater than actual year.
                  Parameter 'date_of_death' for date is in bad format.
                  Parameter 'date_of_death' has year greater than actual year.
+         From MARC::Convert::Wikidata::Object::Utils::check_date_order():
+                 Parameter 'date_of_birth' has date greater or same as parameter 'date_of_death' date.
 
 =head1 EXAMPLE1
 
