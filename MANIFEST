@@ -46,6 +46,7 @@ t/MARC-Convert-Wikidata-Object-Publisher/05-place.t
 t/MARC-Convert-Wikidata-Object-Utils/01-use.t
 t/MARC-Convert-Wikidata-Object-Utils/02-version.t
 t/MARC-Convert-Wikidata-Object-Utils/03-check_date.t
+t/MARC-Convert-Wikidata-Object-Utils/04-check_date_order.t
 t/MARC-Convert-Wikidata-Object/01-use.t
 t/MARC-Convert-Wikidata-Object/02-version.t
 t/MARC-Convert-Wikidata-Object/03-new.t

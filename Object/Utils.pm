@@ -8,7 +8,7 @@ use DateTime;
 use Error::Pure qw(err);
 use Readonly;
 
-Readonly::Array our @EXPORT_OK => qw(check_date);
+Readonly::Array our @EXPORT_OK => qw(check_date check_date_order);
 
 our $VERSION = 0.01;
 
@@ -37,6 +37,43 @@ sub check_date {
 	return;
 }
 
+sub check_date_order {
+	my ($self, $key1, $key2) = @_;
+
+	if (! exists $self->{$key1} || ! exists $self->{$key2}) {
+		return;
+	}
+
+	if (! defined $self->{$key1} || ! defined $self->{$key2}) {
+		return;
+	}
+
+	my $dt1 = _construct_dt($self->{$key1});
+	my $dt2 = _construct_dt($self->{$key2});
+
+	my $cmp = DateTime->compare($dt1, $dt2);
+
+	# dt1 >= dt2
+	if ($cmp != -1) {
+		err "Parameter '$key1' has date greater or same as parameter '$key2' date.";
+	}
+
+	return;
+}
+
+sub _construct_dt {
+	my $date = shift;
+
+	my ($year, $month, $day) = $date =~ m/^\-?(\d{1,4})\-?(\d{0,2})\-?(\d{0,2})$/ms;
+	my $dt = DateTime->new(
+		'year' => $year,
+		$month ? ('month' => $month) : (),
+		$day ? ('day' => $day) : (),
+	);
+
+	return $dt;
+}
+
 1;
 
 __END__
@@ -54,6 +91,7 @@ MARC::Convert::Wikidata::Object::Utils - MARC::Convert::Wikidata::Object utiliti
  use MARC::Convert::Wikidata::Object::Utils qw(check_date);
 
  check_date($self, $key);
+ check_date_order($self, $key1, $key2);
 
 =head1 DESCRIPTION
 
@@ -79,11 +117,24 @@ Put error if check isn't ok.
 
 Returns undef.
 
+=head2 C<check_date_order>
+
+ check_date_order($self, $key1, $key2);
+
+Check if date with C<$key1> is lesser than date with C<$key2>.
+
+Put error if check isn't ok.
+
+Returns undef.
+
 =head1 ERRORS
 
  check_date():
          Parameter '%s' for date is in bad format.
          Parameter '%s' has year greater than actual year.
+
+ check_date_order():
+         Parameter '%s' has date greater or same as parameter '%s' date.
 
 =head1 EXAMPLE1
 
