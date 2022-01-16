@@ -3,15 +3,23 @@
 use strict;
 use warnings;
 
-use MARC::Convert::Wikidata::Object::Utils qw(check_date);
+use Data::Printer;
+use MARC::Convert::Wikidata::Object::Publisher;
 
-my $self = {
-        'key' => '2022-01-15',
-};
-check_date($self, 'key');
+my $obj = MARC::Convert::Wikidata::Object::Publisher->new(
+        'name' => 'Academia',
+        'place' => 'Praha',
+);
 
-# Print out.
-print "ok\n";
+p $obj;
 
 # Output:
-# ok
+# MARC::Convert::Wikidata::Object::Publisher  {
+#     Parents       Mo::Object
+#     public methods (4) : can (UNIVERSAL), DOES (UNIVERSAL), isa (UNIVERSAL), VERSION (UNIVERSAL)
+#     private methods (1) : __ANON__ (Mo::is)
+#     internals: {
+#         name    "Academia",
+#         place   "Praha"
+#     }
+# }
