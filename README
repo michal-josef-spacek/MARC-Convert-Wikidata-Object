@@ -9,6 +9,7 @@ SYNOPSIS
      my $authors_of_introduction_ar = $obj->authors_of_introduction;
      my $authors_ar = $obj->authors;
      my $ccnb = $obj->ccnb;
+     my $compilers = $obj->compilers;
      my $edition_number = $obj->edition_number;
      my $editors_ar = $obj->editors;
      my $full_name = $obj->full_name;
@@ -51,6 +52,13 @@ METHODS
             ČČNB (Česká národní bibliografie) id.
 
             Default value is undef.
+
+    *       "compilers"
+
+            List of compilers. Reference to array with
+            MARC::Convert::Wikidata::Object::People instances.
+
+            Default value is reference to blank array.
 
     *       "edition_number"
 
@@ -158,6 +166,14 @@ METHODS
 
     Returns string.
 
+  "compilers"
+     my $compilers_ar = $obj->compilers;
+
+    Get reference to array with compiler objects.
+
+    Returns reference to array of MARC::Convert::Wikidata::Object::People
+    instances.
+
   "edition_number"
      my $edition_number = $obj->edition_number;
 
@@ -221,10 +237,12 @@ ERRORS
              From Mo::utils::check_array_object():
                      Author isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Author of introduction isn't 'MARC::Convert::Wikidata::Object::People' object.
+                     Compiler isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Parameter 'authors' must be a array.
                      Parameter 'authors_of_introduction' must be a array.
+                     Parameter 'compilers' must be a array.
                      Parameter 'editors' must be a array.
                      Parameter 'illustrators' must be a array.
                      Parameter 'publishers' must be a array.

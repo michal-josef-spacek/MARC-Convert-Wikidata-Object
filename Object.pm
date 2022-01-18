@@ -22,6 +22,10 @@ has ccnb => (
 	is => 'ro',
 );
 
+has compilers => (
+	is => 'ro',
+);
+
 has edition_number => (
 	is => 'ro',
 );
@@ -101,6 +105,10 @@ sub BUILD {
 	check_array_object($self, 'authors',
 		'MARC::Convert::Wikidata::Object::People', 'Author');
 
+	# Check compilers.
+	check_array_object($self, 'compilers',
+		'MARC::Convert::Wikidata::Object::People', 'Compiler');
+
 	# Check editors.
 	check_array_object($self, 'editors',
 		'MARC::Convert::Wikidata::Object::People', 'Editor');
@@ -144,6 +152,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $authors_of_introduction_ar = $obj->authors_of_introduction;
  my $authors_ar = $obj->authors;
  my $ccnb = $obj->ccnb;
+ my $compilers = $obj->compilers;
  my $edition_number = $obj->edition_number;
  my $editors_ar = $obj->editors;
  my $full_name = $obj->full_name;
@@ -190,6 +199,13 @@ Default value is reference to blank array.
 ČČNB (Česká národní bibliografie) id.
 
 Default value is undef.
+
+=item * C<compilers>
+
+List of compilers.
+Reference to array with MARC::Convert::Wikidata::Object::People instances.
+
+Default value is reference to blank array.
 
 =item * C<edition_number>
 
@@ -300,6 +316,14 @@ Get ČČNB (Česká národní bibliografie) ID.
 
 Returns string.
 
+=head2 C<compilers>
+
+ my $compilers_ar = $obj->compilers;
+
+Get reference to array with compiler objects.
+
+Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
+
 =head2 C<edition_number>
 
  my $edition_number = $obj->edition_number;
@@ -376,10 +400,12 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Publisher instanc
          From Mo::utils::check_array_object():
                  Author isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Author of introduction isn't 'MARC::Convert::Wikidata::Object::People' object.
+                 Compiler isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Parameter 'authors' must be a array.
                  Parameter 'authors_of_introduction' must be a array.
+                 Parameter 'compilers' must be a array.
                  Parameter 'editors' must be a array.
                  Parameter 'illustrators' must be a array.
                  Parameter 'publishers' must be a array.
