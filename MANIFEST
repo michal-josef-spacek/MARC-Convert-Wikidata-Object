@@ -61,7 +61,7 @@ t/MARC-Convert-Wikidata-Object/11-illustrators.t
 t/MARC-Convert-Wikidata-Object/12-isbn_10.t
 t/MARC-Convert-Wikidata-Object/13-isbn_13.t
 t/MARC-Convert-Wikidata-Object/14-krameriuses.t
-t/MARC-Convert-Wikidata-Object/15-language.t
+t/MARC-Convert-Wikidata-Object/15-languages.t
 t/MARC-Convert-Wikidata-Object/16-number_of_pages.t
 t/MARC-Convert-Wikidata-Object/17-publication_date.t
 t/MARC-Convert-Wikidata-Object/18-publishers.t

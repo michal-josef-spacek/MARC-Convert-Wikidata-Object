@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Mo qw(build default is);
-use Mo::utils qw(check_array_object);
+use Mo::utils qw(check_array check_array_object);
 
 our $VERSION = 0.01;
 
@@ -48,7 +48,8 @@ has isbn_13 => (
 	is => 'ro',
 );
 
-has language => (
+has languages => (
+	default => [],
 	is => 'ro',
 );
 
@@ -117,6 +118,9 @@ sub BUILD {
 	check_array_object($self, 'illustrators',
 		'MARC::Convert::Wikidata::Object::People', 'Illustrator');
 
+	# Check languages.
+	check_array($self, 'languages');
+
 	# Check Kramerius systems.
 	check_array_object($self, 'krameriuses',
 		'MARC::Convert::Wikidata::Object::Kramerius', 'Kramerius');
@@ -160,7 +164,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $isbn_10 = $obj->isbn_10;
  my $isbn_13 = $obj->isbn_13;
  my $kramerius_ar = $obj->krameriuses;
- my $language = $obj->language;
+ my $languages_ar = $obj->languages;
  my $number_of_pages = $obj->number_of_pages;
  my $publication_date = $obj->publication_date;
  my $publishers_ar = $obj->publishers;
@@ -246,11 +250,11 @@ Reference to array with MARC::Convert::Wikidata::Object::Kramerius instances.
 
 Default value is reference to blank array.
 
-=item * C<language>
+=item * C<languages>
 
-Language of book edition (TODO Format)
+List of languages of book edition (TODO Format)
 
-Default value is undef.
+Default value is reference to blank array.
 
 =item * C<number_of_pages>
 
@@ -364,9 +368,9 @@ Get reference to array with Kramerius item objects.
 
 Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instances.
 
-=head2 C<language>
+=head2 C<languages>
 
- my $language = $obj->language;
+ my $languages_ar = $obj->languages;
 
 =head2 C<number_of_pages>
 
@@ -408,6 +412,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Publisher instanc
                  Parameter 'compilers' must be a array.
                  Parameter 'editors' must be a array.
                  Parameter 'illustrators' must be a array.
+                 Parameter 'languages' must be a array.
                  Parameter 'publishers' must be a array.
                  Parameter 'translators' must be a array.
                  Publisher isn't 'MARC::Convert::Wikidata::Object::Publisher' object.

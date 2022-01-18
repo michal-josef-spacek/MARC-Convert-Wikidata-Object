@@ -17,7 +17,7 @@ SYNOPSIS
      my $isbn_10 = $obj->isbn_10;
      my $isbn_13 = $obj->isbn_13;
      my $kramerius_ar = $obj->krameriuses;
-     my $language = $obj->language;
+     my $languages_ar = $obj->languages;
      my $number_of_pages = $obj->number_of_pages;
      my $publication_date = $obj->publication_date;
      my $publishers_ar = $obj->publishers;
@@ -99,11 +99,11 @@ METHODS
 
             Default value is reference to blank array.
 
-    *       "language"
+    *       "languages"
 
-            Language of book edition (TODO Format)
+            List of languages of book edition (TODO Format)
 
-            Default value is undef.
+            Default value is reference to blank array.
 
     *       "number_of_pages"
 
@@ -208,8 +208,8 @@ METHODS
     Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius
     instances.
 
-  "language"
-     my $language = $obj->language;
+  "languages"
+     my $languages_ar = $obj->languages;
 
   "number_of_pages"
      my $number_of_pages = $obj->number_of_pages;
@@ -245,6 +245,7 @@ ERRORS
                      Parameter 'compilers' must be a array.
                      Parameter 'editors' must be a array.
                      Parameter 'illustrators' must be a array.
+                     Parameter 'languages' must be a array.
                      Parameter 'publishers' must be a array.
                      Parameter 'translators' must be a array.
                      Publisher isn't 'MARC::Convert::Wikidata::Object::Publisher' object.
