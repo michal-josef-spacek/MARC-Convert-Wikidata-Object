@@ -18,7 +18,6 @@ SYNOPSIS
      my $kramerius_ar = $obj->krameriuses;
      my $language = $obj->language;
      my $number_of_pages = $obj->number_of_pages;
-     my $place_of_publication = $obj->place_of_publication;
      my $publication_date = $obj->publication_date;
      my $publishers_ar = $obj->publishers;
      my $subtitle = $obj->subtitle;
@@ -104,12 +103,6 @@ METHODS
 
             Default value is undef.
 
-    *       "place_of_publication"
-
-            Place of publication.
-
-            Default value is undef.
-
     *       "publication_date"
 
             Publication date.
@@ -118,7 +111,8 @@ METHODS
 
     *       "publishers"
 
-            List of Publishers.
+            List of Publishers. Reference to array with
+            MARC::Convert::Wikidata::Object::Publisher instances.
 
             Default value is [].
 
@@ -204,14 +198,14 @@ METHODS
   "number_of_pages"
      my $number_of_pages = $obj->number_of_pages;
 
-  "place_of_publication"
-     my $place_of_publication = $obj->place_of_publication;
-
   "publication_date"
      my $publication_date = $obj->publication_date;
 
   "publishers"
      my $publishers_ar = $obj->publishers;
+
+    Returns reference to array of MARC::Convert::Wikidata::Object::Publisher
+    instances.
 
   "subtitle"
      my $subtitle = $obj->subtitle;
@@ -226,13 +220,16 @@ ERRORS
      new():
              From Mo::utils::check_array_object():
                      Author isn't 'MARC::Convert::Wikidata::Object::People' object.
-                     Parameter 'editors' must be a array.
+                     Author of introduction isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
-                     Parameter 'illustrators' must be a array.
                      Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Parameter 'authors' must be a array.
                      Parameter 'authors_of_introduction' must be a array.
+                     Parameter 'editors' must be a array.
+                     Parameter 'illustrators' must be a array.
+                     Parameter 'publishers' must be a array.
                      Parameter 'translators' must be a array.
+                     Publisher isn't 'MARC::Convert::Wikidata::Object::Publisher' object.
                      Translator isn't 'MARC::Convert::Wikidata::Object::People' object.
 
 EXAMPLE1
@@ -242,6 +239,7 @@ EXAMPLE1
      use Data::Printer;
      use MARC::Convert::Wikidata::Object;
      use MARC::Convert::Wikidata::Object::People;
+     use MARC::Convert::Wikidata::Object::Publisher;
      use Unicode::UTF8 qw(decode_utf8);
  
      my $aut = MARC::Convert::Wikidata::Object::People->new(
@@ -249,6 +247,11 @@ EXAMPLE1
              'name' => decode_utf8('Jiří'),
              'nkcr_aut' => 'jn20000401266',
              'surname' => 'Jurok',
+     );
+
+     my $publisher = MARC::Convert::Wikidata::Object::Publisher->new(
+             'name' => decode_utf8('Město Příbor'),
+             'place' => decode_utf8('Příbor'),
      );
  
      my $obj = MARC::Convert::Wikidata::Object->new(
@@ -258,8 +261,7 @@ EXAMPLE1
              'edition_number' => 2,
              'isbn-10' => '80-238-9541-9',
              'number_of_pages' => 414,
-             'place_of_publication' => decode_utf8('Příbor'),
-             'publishers' => [decode_utf8('Město Příbor')],
+             'publishers' => [$publisher],
      );
  
      p $obj;
@@ -270,18 +272,21 @@ EXAMPLE1
      #     public methods (7) : BUILD, can (UNIVERSAL), DOES (UNIVERSAL), full_name, check_array_object (Mo::utils), isa (UNIVERSAL), VERSION (UNIVERSAL)
      #     private methods (1) : __ANON__ (Mo::is)
      #     internals: {
-     #         authors                [
+     #         authors               [
      #             [0] MARC::Convert::Wikidata::Object::People
      #         ],
-     #         ccnb                   "cnb001188266",
-     #         date_of_publication    2002,
-     #         edition_number         2,
-     #         isbn-10                "80-238-9541-9",
-     #         number_of_pages        414,
-     #         place_of_publication   "Příbor",
-     #         publisher              [
-     #             [0] "Město Příbor"
+     #         ccnb                  "cnb001188266",
+     #         date_of_publication   2002,
+     #         edition_number        2,
+     #         editors               [],
+     #         illustrators          [],
+     #         isbn-10               "80-238-9541-9",
+     #         krameriuses           [],
+     #         number_of_pages       414,
+     #         publishers            [
+     #             [0] MARC::Convert::Wikidata::Object::Publisher
      #         ],
+     #         translators           []
      #     }
      # }
 
