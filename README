@@ -6,6 +6,7 @@ SYNOPSIS
      use MARC::Convert::Wikidata::Object;
 
      my $obj = MARC::Convert::Wikidata::Object->new(%params);
+     my $authors_of_introduction_ar = $obj->authors_of_introduction;
      my $authors_ar = $obj->authors;
      my $ccnb = $obj->ccnb;
      my $edition_number = $obj->edition_number;
@@ -31,6 +32,13 @@ METHODS
     Constructor.
 
     Returns instance of object.
+
+    *       "authors_of_introduction"
+
+            List of authors of introduction. Reference to array with
+            MARC::Convert::Wikidata::Object::People instances.
+
+            Default value is reference to blank array.
 
     *       "authors"
 
@@ -136,7 +144,15 @@ METHODS
   "authors"
      my $authors_ar = $obj->authors;
 
-    Get reference to array with author objects. Create item in system.
+    Get reference to array with author objects.
+
+    Returns reference to array of MARC::Convert::Wikidata::Object::People
+    instances.
+
+  "authors_of_introduction"
+     my $authors_of_introduction_ar = $obj->authors_of_introduction;
+
+    Get reference to array with author of introduction objects.
 
     Returns reference to array of MARC::Convert::Wikidata::Object::People
     instances.
@@ -209,12 +225,13 @@ METHODS
 ERRORS
      new():
              From Mo::utils::check_array_object():
-                     Parameter authors' must be a array.
                      Author isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Parameter 'editors' must be a array.
                      Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Parameter 'illustrators' must be a array.
                      Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
+                     Parameter 'authors' must be a array.
+                     Parameter 'authors_of_introduction' must be a array.
                      Parameter 'translators' must be a array.
                      Translator isn't 'MARC::Convert::Wikidata::Object::People' object.
 
