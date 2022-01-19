@@ -62,6 +62,10 @@ has number_of_pages => (
 	is => 'ro',
 );
 
+has oclc => (
+	is => 'ro',
+);
+
 has publication_date => (
 	is => 'ro',
 );
@@ -166,6 +170,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $kramerius_ar = $obj->krameriuses;
  my $languages_ar = $obj->languages;
  my $number_of_pages = $obj->number_of_pages;
+ my $oclc = $obj->oclc;
  my $publication_date = $obj->publication_date;
  my $publishers_ar = $obj->publishers;
  my $subtitle = $obj->subtitle;
@@ -259,6 +264,12 @@ Default value is reference to blank array.
 =item * C<number_of_pages>
 
 Number of pages.
+
+Default value is undef.
+
+=item * C<oclc>
+
+OCLC control number.
 
 Default value is undef.
 
@@ -375,6 +386,14 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
 =head2 C<number_of_pages>
 
  my $number_of_pages = $obj->number_of_pages;
+
+=head2 C<oclc>
+
+ my $oclc = $obj->oclc;
+
+Get OCLC control number.
+
+Returns string.
 
 =head2 C<publication_date>
 

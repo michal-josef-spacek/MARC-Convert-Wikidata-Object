@@ -1,6 +1,5 @@
 TODO
 ====
-3. Pridat oclc u nekterych to je. (nektera vlastiveda moravska)
 5. more isbn in record
 6. language format
 8. Add series object (name + ordinal)
@@ -24,3 +23,6 @@ OK [20220115] skim
 2. Check of date_of_birth before date_of_death.
 Implement Utils::check_date_order
 OK [20220117] skim
+
+3. Pridat oclc u nekterych to je. (nektera vlastiveda moravska)
+OK [20220119] skim

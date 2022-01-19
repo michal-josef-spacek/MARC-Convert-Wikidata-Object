@@ -63,11 +63,12 @@ t/MARC-Convert-Wikidata-Object/13-isbn_13.t
 t/MARC-Convert-Wikidata-Object/14-krameriuses.t
 t/MARC-Convert-Wikidata-Object/15-languages.t
 t/MARC-Convert-Wikidata-Object/16-number_of_pages.t
-t/MARC-Convert-Wikidata-Object/17-publication_date.t
-t/MARC-Convert-Wikidata-Object/18-publishers.t
-t/MARC-Convert-Wikidata-Object/19-subtitle.t
-t/MARC-Convert-Wikidata-Object/20-title.t
-t/MARC-Convert-Wikidata-Object/21-translators.t
+t/MARC-Convert-Wikidata-Object/17-oclc.t
+t/MARC-Convert-Wikidata-Object/18-publication_date.t
+t/MARC-Convert-Wikidata-Object/19-publishers.t
+t/MARC-Convert-Wikidata-Object/20-subtitle.t
+t/MARC-Convert-Wikidata-Object/21-title.t
+t/MARC-Convert-Wikidata-Object/22-translators.t
 xt/MARC-Convert-Wikidata-Object-Kramerius/01-pod_coverage.t
 xt/MARC-Convert-Wikidata-Object-Kramerius/02-pod.t
 xt/MARC-Convert-Wikidata-Object-People/01-pod_coverage.t
