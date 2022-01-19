@@ -25,7 +25,9 @@ sub check_date {
 
 	# Check year format.
 	if ($self->{$key} !~ m/^\-?(\d{1,4})\-?\d{0,2}\-?\d{0,2}$/ms) {
-		err "Parameter '$key' is in bad format.";
+		err "Parameter '$key' is in bad format.",
+			'Value', $self->{$key},
+		;
 	}
 	my $year = $1;
 
