@@ -4,7 +4,7 @@ use warnings;
 use English;
 use Error::Pure::Utils qw(clean);
 use MARC::Convert::Wikidata::Object::Utils qw(check_date_order);
-use Test::More 'tests' => 5;
+use Test::More 'tests' => 6;
 use Test::NoWarnings;
 
 # Test.
@@ -22,6 +22,14 @@ $self = {
 };
 $ret = check_date_order($self, 'date1', 'date2');
 is($ret, undef, "Date '2020-12-31' is lesser than date '2021-1-1'.");
+
+# Test.
+$self = {
+	'date1' => '-600',
+	'date2' => '-500',
+};
+$ret = check_date_order($self, 'date1', 'date2');
+is($ret, undef, "Date '-600' is lesser than date '-500'.");
 
 # Test.
 $self = {

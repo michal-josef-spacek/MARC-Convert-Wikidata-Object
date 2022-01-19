@@ -64,7 +64,7 @@ sub check_date_order {
 sub _construct_dt {
 	my $date = shift;
 
-	my ($year, $month, $day) = $date =~ m/^\-?(\d{1,4})\-?(\d{0,2})\-?(\d{0,2})$/ms;
+	my ($year, $month, $day) = $date =~ m/^(\-?\d{1,4})\-?(\d{0,2})\-?(\d{0,2})$/ms;
 	my $dt = DateTime->new(
 		'year' => $year,
 		$month ? ('month' => $month) : (),
