@@ -72,6 +72,11 @@ has publishers => (
 	is => 'ro',
 );
 
+has series => (
+	default => [],
+	is => 'ro',
+);
+
 has subtitle => (
 	is => 'ro',
 );
@@ -134,6 +139,10 @@ sub BUILD {
 	check_array_object($self, 'publishers',
 		'MARC::Convert::Wikidata::Object::Publisher', 'Publisher');
 
+	# Check series.
+	check_array_object($self, 'series',
+		'MARC::Convert::Wikidata::Object::Series', 'Book series');
+
 	# Check translators.
 	check_array_object($self, 'translators',
 		'MARC::Convert::Wikidata::Object::People', 'Translator');
@@ -173,6 +182,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $oclc = $obj->oclc;
  my $publication_date = $obj->publication_date;
  my $publishers_ar = $obj->publishers;
+ my $series_ar = $obj->series;
  my $subtitle = $obj->subtitle;
  my $title = $obj->title;
  my $translators_ar = $obj->translators;
@@ -278,6 +288,13 @@ Default value is undef.
 
 List of Publishers.
 Reference to array with MARC::Convert::Wikidata::Object::Publisher instances.
+
+Default value is [].
+
+=item * C<series>
+
+List of book series.
+Reference to array with MARC::Convert::Wikidata::Object::Series instances.
 
 Default value is [].
 
@@ -396,6 +413,14 @@ Returns string.
 
 Returns reference to array of MARC::Convert::Wikidata::Object::Publisher instances.
 
+=head2 C<series>
+
+ my $series_ar = $obj->series;
+
+Get reference to array with Serie item objects.
+
+Returns reference to array of MARC::Convert::Wikidata::Object::Series instances.
+
 =head2 C<subtitle>
 
  my $subtitle = $obj->subtitle;
@@ -414,6 +439,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Publisher instanc
          From Mo::utils::check_array_object():
                  Author isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Author of introduction isn't 'MARC::Convert::Wikidata::Object::People' object.
+                 Book serie isn't 'MARC::Convert::Wikidata::Object::Series' object.
                  Compiler isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
@@ -424,6 +450,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Publisher instanc
                  Parameter 'illustrators' must be a array.
                  Parameter 'languages' must be a array.
                  Parameter 'publishers' must be a array.
+                 Parameter 'series' must be a array.
                  Parameter 'translators' must be a array.
                  Publisher isn't 'MARC::Convert::Wikidata::Object::Publisher' object.
                  Translator isn't 'MARC::Convert::Wikidata::Object::People' object.
@@ -455,7 +482,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Publisher instanc
          'isbn' => '80-238-9541-9',
          'publisher' => decode_utf8('Město Příbor'),
  );
- 
+
  my $obj = MARC::Convert::Wikidata::Object->new(
          'authors' => [$aut],
          'ccnb' => 'cnb001188266',

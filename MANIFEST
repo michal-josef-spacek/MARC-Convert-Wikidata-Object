@@ -78,9 +78,10 @@ t/MARC-Convert-Wikidata-Object/15-number_of_pages.t
 t/MARC-Convert-Wikidata-Object/16-oclc.t
 t/MARC-Convert-Wikidata-Object/17-publication_date.t
 t/MARC-Convert-Wikidata-Object/18-publishers.t
-t/MARC-Convert-Wikidata-Object/19-subtitle.t
-t/MARC-Convert-Wikidata-Object/20-title.t
-t/MARC-Convert-Wikidata-Object/21-translators.t
+t/MARC-Convert-Wikidata-Object/19-series.t
+t/MARC-Convert-Wikidata-Object/20-subtitle.t
+t/MARC-Convert-Wikidata-Object/21-title.t
+t/MARC-Convert-Wikidata-Object/22-translators.t
 xt/MARC-Convert-Wikidata-Object-ISBN/01-pod_coverage.t
 xt/MARC-Convert-Wikidata-Object-ISBN/02-pod.t
 xt/MARC-Convert-Wikidata-Object-Kramerius/01-pod_coverage.t

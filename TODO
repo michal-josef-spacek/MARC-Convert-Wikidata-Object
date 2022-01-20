@@ -2,7 +2,6 @@ TODO
 ====
 5. more isbn in record
 6. language format
-8. Add series object (name + ordinal)
 9. required values in Kramerius
 10. Remove url from Kramerius.
 11. Methods in doc for Object.
@@ -26,3 +25,6 @@ OK [20220117] skim
 
 3. Pridat oclc u nekterych to je. (nektera vlastiveda moravska)
 OK [20220119] skim
+
+8. Add series object (name + ordinal)
+OK [20220121] skim
