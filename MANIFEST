@@ -24,6 +24,7 @@ Object/ISBN.pm
 Object/Kramerius.pm
 Object/People.pm
 Object/Publisher.pm
+Object/Series.pm
 Object/Utils.pm
 README
 t/MARC-Convert-Wikidata-Object-ISBN/01-use.t
@@ -49,6 +50,12 @@ t/MARC-Convert-Wikidata-Object-Publisher/02-version.t
 t/MARC-Convert-Wikidata-Object-Publisher/03-new.t
 t/MARC-Convert-Wikidata-Object-Publisher/04-name.t
 t/MARC-Convert-Wikidata-Object-Publisher/05-place.t
+t/MARC-Convert-Wikidata-Object-Series/01-use.t
+t/MARC-Convert-Wikidata-Object-Series/02-version.t
+t/MARC-Convert-Wikidata-Object-Series/03-new.t
+t/MARC-Convert-Wikidata-Object-Series/04-name.t
+t/MARC-Convert-Wikidata-Object-Series/05-publisher.t
+t/MARC-Convert-Wikidata-Object-Series/06-series_ordinal.t
 t/MARC-Convert-Wikidata-Object-Utils/01-use.t
 t/MARC-Convert-Wikidata-Object-Utils/02-version.t
 t/MARC-Convert-Wikidata-Object-Utils/03-check_date.t
@@ -82,6 +89,8 @@ xt/MARC-Convert-Wikidata-Object-People/01-pod_coverage.t
 xt/MARC-Convert-Wikidata-Object-People/02-pod.t
 xt/MARC-Convert-Wikidata-Object-Publisher/01-pod_coverage.t
 xt/MARC-Convert-Wikidata-Object-Publisher/02-pod.t
+xt/MARC-Convert-Wikidata-Object-Series/01-pod_coverage.t
+xt/MARC-Convert-Wikidata-Object-Series/02-pod.t
 xt/MARC-Convert-Wikidata-Object-Utils/01-pod_coverage.t
 xt/MARC-Convert-Wikidata-Object-Utils/02-pod.t
 xt/MARC-Convert-Wikidata-Object/01-pod_coverage.t
