@@ -51,7 +51,7 @@ __END__
 
 =head1 NAME
 
-MARC::Convert::Wikidata::Object::ISBN - Bibliographic Wikidata object for publisher defined by ISBN record.
+MARC::Convert::Wikidata::Object::ISBN - Bibliographic Wikidata object for ISBN number defined by MARC record.
 
 =head1 SYNOPSIS
 
