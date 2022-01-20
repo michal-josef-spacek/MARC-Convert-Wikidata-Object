@@ -19,6 +19,7 @@ SYNOPSIS
      my $kramerius_ar = $obj->krameriuses;
      my $languages_ar = $obj->languages;
      my $number_of_pages = $obj->number_of_pages;
+     my $oclc = $obj->oclc;
      my $publication_date = $obj->publication_date;
      my $publishers_ar = $obj->publishers;
      my $subtitle = $obj->subtitle;
@@ -108,6 +109,12 @@ METHODS
     *       "number_of_pages"
 
             Number of pages.
+
+            Default value is undef.
+
+    *       "oclc"
+
+            OCLC control number.
 
             Default value is undef.
 
@@ -213,6 +220,13 @@ METHODS
 
   "number_of_pages"
      my $number_of_pages = $obj->number_of_pages;
+
+  "oclc"
+     my $oclc = $obj->oclc;
+
+    Get OCLC control number.
+
+    Returns string.
 
   "publication_date"
      my $publication_date = $obj->publication_date;

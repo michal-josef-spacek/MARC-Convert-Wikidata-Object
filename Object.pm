@@ -40,11 +40,8 @@ has illustrators => (
 	is => 'ro',
 );
 
-has isbn_10 => (
-	is => 'ro',
-);
-
-has isbn_13 => (
+has isbns => (
+	default => [],
 	is => 'ro',
 );
 
@@ -122,6 +119,10 @@ sub BUILD {
 	check_array_object($self, 'illustrators',
 		'MARC::Convert::Wikidata::Object::People', 'Illustrator');
 
+	# Check isbns.
+	check_array_object($self, 'isbns',
+		'MARC::Convert::Wikidata::Object::ISBN', 'ISBN');
+
 	# Check languages.
 	check_array($self, 'languages');
 
@@ -165,8 +166,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $editors_ar = $obj->editors;
  my $full_name = $obj->full_name;
  my $illustrators_ar = $obj->illustrators;
- my $isbn_10 = $obj->isbn_10;
- my $isbn_13 = $obj->isbn_13;
+ my $isbns_ar = $obj->isbns;
  my $kramerius_ar = $obj->krameriuses;
  my $languages_ar = $obj->languages;
  my $number_of_pages = $obj->number_of_pages;
@@ -236,17 +236,12 @@ Reference to array with MARC::Convert::Wikidata::Object::People instances.
 
 Default value is reference to blank array.
 
-=item * C<isbn_10>
+=item * C<isbns>
 
-ISBN identifier with 10 characters (old one version).
+List of ISBNs.
+Reference to array with MARC::Convert::Wikidata::Object::ISBN instances.
 
-Default value is undef.
-
-=item * C<isbn_13>
-
-ISBN identifier with 13 characters (new one version).
-
-Default value is undef.
+Default value is reference to blank array.
 
 =item * C<krameriuses>
 
@@ -363,13 +358,9 @@ Returns string.
 
  my $illustrators_ar = $obj->illustrators;
 
-=head2 C<isbn_10>
+=head2 C<isbns>
 
- my $isbn_10 = $obj->isbn_10;
-
-=head2 C<isbn_13>
-
- my $isbn_13 = $obj->isbn_13;
+ my $isbns_ar = $obj->isbns;
 
 =head2 c<krameriuses>
 
@@ -459,13 +450,18 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Publisher instanc
          'name' => decode_utf8('Město Příbor'),
          'place' => decode_utf8('Příbor'),
  );
+
+ my $isbn = MARC::Convert::Wikidata::Object::ISBN->new(
+         'isbn' => '80-238-9541-9',
+         'publisher' => decode_utf8('Město Příbor'),
+ );
  
  my $obj = MARC::Convert::Wikidata::Object->new(
          'authors' => [$aut],
          'ccnb' => 'cnb001188266',
          'date_of_publication' => 2002,
          'edition_number' => 2,
-         'isbn-10' => '80-238-9541-9',
+         'isbns' => [$isbn],
          'number_of_pages' => 414,
          'publishers' => [$publisher],
  );
@@ -473,28 +469,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Publisher instanc
  p $obj;
 
  # Output:
- # MARC::Convert::Wikidata::Object  {
- #     Parents       Mo::Object
- #     public methods (7) : BUILD, can (UNIVERSAL), DOES (UNIVERSAL), full_name, check_array_object (Mo::utils), isa (UNIVERSAL), VERSION (UNIVERSAL)
- #     private methods (1) : __ANON__ (Mo::is)
- #     internals: {
- #         authors               [
- #             [0] MARC::Convert::Wikidata::Object::People
- #         ],
- #         ccnb                  "cnb001188266",
- #         date_of_publication   2002,
- #         edition_number        2,
- #         editors               [],
- #         illustrators          [],
- #         isbn-10               "80-238-9541-9",
- #         krameriuses           [],
- #         number_of_pages       414,
- #         publishers            [
- #             [0] MARC::Convert::Wikidata::Object::Publisher
- #         ],
- #         translators           []
- #     }
- # }
+ # TODO
 
 =head1 DEPENDENCIES
 
