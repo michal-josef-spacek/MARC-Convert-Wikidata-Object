@@ -1,6 +1,5 @@
 TODO
 ====
-5. more isbn in record
 6. language format
 9. required values in Kramerius
 10. Remove url from Kramerius.
@@ -28,3 +27,6 @@ OK [20220119] skim
 
 8. Add series object (name + ordinal)
 OK [20220121] skim
+
+5. more isbn in record
+OK [20220125] skim
