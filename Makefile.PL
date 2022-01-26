@@ -21,8 +21,10 @@ recursive_author_tests('xt');
 requires 'Business::ISBN' => 0;
 requires 'DateTime' => 0;
 requires 'Error::Pure' => 0;
+requires 'List::MoreUtils' => 0;
 requires 'Mo' => 0;
 requires 'Mo::utils' => 0.06;
+requires 'Readonly' => 0;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/MARC-Convert-Wikidata-Object/issues',
 resources 'homepage' => 'https://github.com/michal-josef-spacek/MARC-Convert-Wikidata-Object';
 resources 'repository' => 'git://github.com/michal-josef-spacek/MARC-Convert-Wikidata-Object';

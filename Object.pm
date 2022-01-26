@@ -3,8 +3,13 @@ package MARC::Convert::Wikidata::Object;
 use strict;
 use warnings;
 
+use Error::Pure qw(err);
+use List::MoreUtils qw(none);
 use Mo qw(build default is);
 use Mo::utils qw(check_array check_array_object);
+use Readonly;
+
+Readonly::Array our @COVERS => qw(hardcover paperback);
 
 our $VERSION = 0.01;
 
@@ -23,6 +28,10 @@ has ccnb => (
 );
 
 has compilers => (
+	is => 'ro',
+);
+
+has cover => (
 	is => 'ro',
 );
 
@@ -116,6 +125,10 @@ sub BUILD {
 	check_array_object($self, 'compilers',
 		'MARC::Convert::Wikidata::Object::People', 'Compiler');
 
+	if (defined $self->{'cover'} && none { $_ eq $self->{'cover'} } @COVERS) {
+		err "Book cover '".$self->{'cover'}."' doesn't exist.";
+	}
+
 	# Check editors.
 	check_array_object($self, 'editors',
 		'MARC::Convert::Wikidata::Object::People', 'Editor');
@@ -171,6 +184,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $authors_ar = $obj->authors;
  my $ccnb = $obj->ccnb;
  my $compilers = $obj->compilers;
+ my $cover = $obj->cover;
  my $edition_number = $obj->edition_number;
  my $editors_ar = $obj->editors;
  my $full_name = $obj->full_name;
@@ -225,6 +239,15 @@ List of compilers.
 Reference to array with MARC::Convert::Wikidata::Object::People instances.
 
 Default value is reference to blank array.
+
+=item * C<cover>
+
+Book cover.
+Possible values:
+ * hardcover
+ * paperback
+
+Default value is undef.
 
 =item * C<edition_number>
 
@@ -351,6 +374,14 @@ Get reference to array with compiler objects.
 
 Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
 
+=head2 C<cover>
+
+ my $cover = $obj->cover;
+
+Get book cover.
+
+Returns string (hardcover or paperback).
+
 =head2 C<edition_number>
 
  my $edition_number = $obj->edition_number;
@@ -440,6 +471,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Series instances.
                  Author isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Author of introduction isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Book series isn't 'MARC::Convert::Wikidata::Object::Series' object.
+                 Book cover '%s' doesn't exist.
                  Compiler isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
@@ -500,8 +532,11 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Series instances.
 
 =head1 DEPENDENCIES
 
+L<Error::Pure>,
+L<List::MoreUtils>,
 L<Mo>,
-L<Mo::utils>.
+L<Mo::utils>,
+L<Readonly>.
 
 =head1 SEE ALSO
 
