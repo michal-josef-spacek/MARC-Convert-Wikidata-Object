@@ -439,7 +439,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Series instances.
          From Mo::utils::check_array_object():
                  Author isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Author of introduction isn't 'MARC::Convert::Wikidata::Object::People' object.
-                 Book serie isn't 'MARC::Convert::Wikidata::Object::Series' object.
+                 Book series isn't 'MARC::Convert::Wikidata::Object::Series' object.
                  Compiler isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
