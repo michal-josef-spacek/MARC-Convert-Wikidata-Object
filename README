@@ -10,18 +10,19 @@ SYNOPSIS
      my $authors_ar = $obj->authors;
      my $ccnb = $obj->ccnb;
      my $compilers = $obj->compilers;
+     my $cover = $obj->cover;
      my $edition_number = $obj->edition_number;
      my $editors_ar = $obj->editors;
      my $full_name = $obj->full_name;
      my $illustrators_ar = $obj->illustrators;
-     my $isbn_10 = $obj->isbn_10;
-     my $isbn_13 = $obj->isbn_13;
+     my $isbns_ar = $obj->isbns;
      my $kramerius_ar = $obj->krameriuses;
      my $languages_ar = $obj->languages;
      my $number_of_pages = $obj->number_of_pages;
      my $oclc = $obj->oclc;
      my $publication_date = $obj->publication_date;
      my $publishers_ar = $obj->publishers;
+     my $series_ar = $obj->series;
      my $subtitle = $obj->subtitle;
      my $title = $obj->title;
      my $translators_ar = $obj->translators;
@@ -61,6 +62,12 @@ METHODS
 
             Default value is reference to blank array.
 
+    *       "cover"
+
+            Book cover. Possible values: * hardcover * paperback
+
+            Default value is undef.
+
     *       "edition_number"
 
             Edition number.
@@ -81,17 +88,12 @@ METHODS
 
             Default value is reference to blank array.
 
-    *       "isbn_10"
+    *       "isbns"
 
-            ISBN identifier with 10 characters (old one version).
+            List of ISBNs. Reference to array with
+            MARC::Convert::Wikidata::Object::ISBN instances.
 
-            Default value is undef.
-
-    *       "isbn_13"
-
-            ISBN identifier with 13 characters (new one version).
-
-            Default value is undef.
+            Default value is reference to blank array.
 
     *       "krameriuses"
 
@@ -128,6 +130,13 @@ METHODS
 
             List of Publishers. Reference to array with
             MARC::Convert::Wikidata::Object::Publisher instances.
+
+            Default value is [].
+
+    *       "series"
+
+            List of book series. Reference to array with
+            MARC::Convert::Wikidata::Object::Series instances.
 
             Default value is [].
 
@@ -181,6 +190,13 @@ METHODS
     Returns reference to array of MARC::Convert::Wikidata::Object::People
     instances.
 
+  "cover"
+     my $cover = $obj->cover;
+
+    Get book cover.
+
+    Returns string (hardcover or paperback).
+
   "edition_number"
      my $edition_number = $obj->edition_number;
 
@@ -201,11 +217,8 @@ METHODS
   c<illustrators>
      my $illustrators_ar = $obj->illustrators;
 
-  "isbn_10"
-     my $isbn_10 = $obj->isbn_10;
-
-  "isbn_13"
-     my $isbn_13 = $obj->isbn_13;
+  "isbns"
+     my $isbns_ar = $obj->isbns;
 
   c<krameriuses>
      my $kramerius_ar = $obj->krameriuses;
@@ -237,6 +250,14 @@ METHODS
     Returns reference to array of MARC::Convert::Wikidata::Object::Publisher
     instances.
 
+  "series"
+     my $series_ar = $obj->series;
+
+    Get reference to array with Serie item objects.
+
+    Returns reference to array of MARC::Convert::Wikidata::Object::Series
+    instances.
+
   "subtitle"
      my $subtitle = $obj->subtitle;
 
@@ -251,6 +272,8 @@ ERRORS
              From Mo::utils::check_array_object():
                      Author isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Author of introduction isn't 'MARC::Convert::Wikidata::Object::People' object.
+                     Book series isn't 'MARC::Convert::Wikidata::Object::Series' object.
+                     Book cover '%s' doesn't exist.
                      Compiler isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
@@ -261,6 +284,7 @@ ERRORS
                      Parameter 'illustrators' must be a array.
                      Parameter 'languages' must be a array.
                      Parameter 'publishers' must be a array.
+                     Parameter 'series' must be a array.
                      Parameter 'translators' must be a array.
                      Publisher isn't 'MARC::Convert::Wikidata::Object::Publisher' object.
                      Translator isn't 'MARC::Convert::Wikidata::Object::People' object.
@@ -286,13 +310,18 @@ EXAMPLE1
              'name' => decode_utf8('Město Příbor'),
              'place' => decode_utf8('Příbor'),
      );
- 
+
+     my $isbn = MARC::Convert::Wikidata::Object::ISBN->new(
+             'isbn' => '80-238-9541-9',
+             'publisher' => decode_utf8('Město Příbor'),
+     );
+
      my $obj = MARC::Convert::Wikidata::Object->new(
              'authors' => [$aut],
              'ccnb' => 'cnb001188266',
              'date_of_publication' => 2002,
              'edition_number' => 2,
-             'isbn-10' => '80-238-9541-9',
+             'isbns' => [$isbn],
              'number_of_pages' => 414,
              'publishers' => [$publisher],
      );
@@ -300,31 +329,10 @@ EXAMPLE1
      p $obj;
 
      # Output:
-     # MARC::Convert::Wikidata::Object  {
-     #     Parents       Mo::Object
-     #     public methods (7) : BUILD, can (UNIVERSAL), DOES (UNIVERSAL), full_name, check_array_object (Mo::utils), isa (UNIVERSAL), VERSION (UNIVERSAL)
-     #     private methods (1) : __ANON__ (Mo::is)
-     #     internals: {
-     #         authors               [
-     #             [0] MARC::Convert::Wikidata::Object::People
-     #         ],
-     #         ccnb                  "cnb001188266",
-     #         date_of_publication   2002,
-     #         edition_number        2,
-     #         editors               [],
-     #         illustrators          [],
-     #         isbn-10               "80-238-9541-9",
-     #         krameriuses           [],
-     #         number_of_pages       414,
-     #         publishers            [
-     #             [0] MARC::Convert::Wikidata::Object::Publisher
-     #         ],
-     #         translators           []
-     #     }
-     # }
+     # TODO
 
 DEPENDENCIES
-    Mo, Mo::utils.
+    Error::Pure, List::MoreUtils, Mo, Mo::utils, Readonly.
 
 SEE ALSO
     MARC::Convert::Wikidata
