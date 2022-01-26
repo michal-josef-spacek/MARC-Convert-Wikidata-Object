@@ -64,7 +64,7 @@ METHODS
 
     *       "cover"
 
-            Book cover. Possible values: * hardcover * paperback
+            Book cover. Possible values: * hardback * paperback
 
             Default value is undef.
 
@@ -195,7 +195,7 @@ METHODS
 
     Get book cover.
 
-    Returns string (hardcover or paperback).
+    Returns string (hardback or paperback).
 
   "edition_number"
      my $edition_number = $obj->edition_number;

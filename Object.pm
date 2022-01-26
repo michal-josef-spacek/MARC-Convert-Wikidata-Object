@@ -9,7 +9,7 @@ use Mo qw(build default is);
 use Mo::utils qw(check_array check_array_object);
 use Readonly;
 
-Readonly::Array our @COVERS => qw(hardcover paperback);
+Readonly::Array our @COVERS => qw(hardback paperback);
 
 our $VERSION = 0.01;
 
@@ -244,7 +244,7 @@ Default value is reference to blank array.
 
 Book cover.
 Possible values:
- * hardcover
+ * hardback
  * paperback
 
 Default value is undef.
@@ -380,7 +380,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
 
 Get book cover.
 
-Returns string (hardcover or paperback).
+Returns string (hardback or paperback).
 
 =head2 C<edition_number>
 

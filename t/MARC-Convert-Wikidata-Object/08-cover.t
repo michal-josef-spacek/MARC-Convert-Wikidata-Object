@@ -11,6 +11,6 @@ is($obj->cover, undef, 'Get default book cover.');
 
 # Test.
 $obj = MARC::Convert::Wikidata::Object->new(
-	'cover' => 'hardcover',
+	'cover' => 'hardback',
 );
-is($obj->cover, 'hardcover', 'Get book cover.');
+is($obj->cover, 'hardback', 'Get book cover.');
