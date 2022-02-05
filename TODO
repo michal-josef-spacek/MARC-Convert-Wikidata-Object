@@ -6,7 +6,8 @@ TODO
 11. Methods in doc for Object.
 12. Doc for Kramerius
 13. Change publisher in Series to object (like a isbn)
-14.
+14. Rewrite output in doc examples to explicit print (because encoding to utf8 in Data::Printer)
+15.
 
 Applied
 =======
