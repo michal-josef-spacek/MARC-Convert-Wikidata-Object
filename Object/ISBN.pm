@@ -6,7 +6,7 @@ use warnings;
 use Business::ISBN;
 use Error::Pure qw(err);
 use Mo qw(build is);
-use Mo::utils qw(check_required);
+use Mo::utils qw(check_isa check_required);
 
 our $VERSION = 0.01;
 
@@ -37,6 +37,8 @@ sub BUILD {
 	if (! defined $self->{'_isbn'} || ! $self->{'_isbn'}->is_valid) {
 		err "ISBN '$self->{'isbn'}' isn't valid.";
 	}
+
+	check_isa($self, 'publisher', 'MARC::Convert::Wikidata::Object::Publisher');
 
 	return;
 }
@@ -84,7 +86,8 @@ Default value is undef.
 
 =item * C<publisher>
 
-Name of publishing house.
+Publishing house object.
+Instance of MARC::Convert::Wikidata::Object::Publisher.
 
 Default value is undef.
 
@@ -104,7 +107,7 @@ Returns string.
 
 Get publishing house name.
 
-Returns string.
+Returns instance of MARC::Convert::Wikidata::Object::Publisher.
 
 =head2 C<type>
 
@@ -119,6 +122,8 @@ Returns number (10 or 13).
  new():
          Parameter 'isbn' is required.
          ISBN '%s' isn't valid.
+         From check_isa():
+                 Parameter 'publisher' must be a 'MARC::Convert::Wikidata::Object::Publisher' object.
 
 =head1 EXAMPLE1
 
@@ -127,16 +132,28 @@ Returns number (10 or 13).
 
  use Data::Printer;
  use MARC::Convert::Wikidata::Object::ISBN;
+ use MARC::Convert::Wikidata::Object::Publisher;
  
- my $obj = MARC::Convert::Wikidata::Object::Publisher->new(
-         'isbn' => '978-80-00-05046-1'
-         'publisher' => 'Albatros',
+ my $obj = MARC::Convert::Wikidata::Object::ISBN->new(
+         'isbn' => '978-80-00-05046-1',
+         'publisher' => MARC::Convert::Wikidata::Object::Publisher->new(
+                 'name' => 'Albatros',
+         ),
  );
  
  p $obj;
 
  # Output:
- # TODO
+ # MARC::Convert::Wikidata::Object::ISBN  {
+ #     Parents       Mo::Object
+ #     public methods (9) : BUILD, can (UNIVERSAL), DOES (UNIVERSAL), err (Error::Pure), check_isa (Mo::utils), check_required (Mo::utils), isa (UNIVERSAL), type, VERSION (UNIVERSAL)
+ #     private methods (1) : __ANON__ (Mo::build)
+ #     internals: {
+ #         _isbn       Business::ISBN13,
+ #         isbn        "978-80-00-05046-1",
+ #         publisher   MARC::Convert::Wikidata::Object::Publisher
+ #     }
+ # }
 
 =head1 DEPENDENCIES
 

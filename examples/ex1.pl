@@ -5,6 +5,7 @@ use warnings;
 
 use Data::Printer;
 use MARC::Convert::Wikidata::Object;
+use MARC::Convert::Wikidata::Object::ISBN;
 use MARC::Convert::Wikidata::Object::People;
 use MARC::Convert::Wikidata::Object::Publisher;
 use Unicode::UTF8 qw(decode_utf8);
@@ -21,12 +22,17 @@ my $publisher = MARC::Convert::Wikidata::Object::Publisher->new(
         'place' => decode_utf8('Příbor'),
 );
 
+my $isbn = MARC::Convert::Wikidata::Object::ISBN->new(
+        'isbn' => '80-238-9541-9',
+        'publisher' => $publisher,
+);
+
 my $obj = MARC::Convert::Wikidata::Object->new(
         'authors' => [$aut],
         'ccnb' => 'cnb001188266',
         'date_of_publication' => 2002,
         'edition_number' => 2,
-        'isbn-10' => '80-238-9541-9',
+        'isbns' => [$isbn],
         'number_of_pages' => 414,
         'publishers' => [$publisher],
 );
@@ -36,23 +42,28 @@ p $obj;
 # Output:
 # MARC::Convert::Wikidata::Object  {
 #     Parents       Mo::Object
-#     public methods (7) : BUILD, can (UNIVERSAL), DOES (UNIVERSAL), full_name, check_array_object (Mo::utils), isa (UNIVERSAL), VERSION (UNIVERSAL)
+#     public methods (11) : BUILD, can (UNIVERSAL), DOES (UNIVERSAL), err (Error::Pure), full_name, check_array (Mo::utils), check_array_object (Mo::utils), isa (UNIVERSAL), none (List::MoreUtils::XS), Readonly (Readonly), VERSION (UNIVERSAL)
 #     private methods (1) : __ANON__ (Mo::is)
 #     internals: {
-#         authors               [
+#         authors                   [
 #             [0] MARC::Convert::Wikidata::Object::People
 #         ],
-#         ccnb                  "cnb001188266",
-#         date_of_publication   2002,
-#         edition_number        2,
-#         editors               [],
-#         illustrators          [],
-#         isbn-10               "80-238-9541-9",
-#         krameriuses           [],
-#         number_of_pages       414,
-#         publishers            [
+#         authors_of_introduction   [],
+#         ccnb                      "cnb001188266",
+#         compilers                 [],
+#         date_of_publication       2002,
+#         edition_number            2,
+#         editors                   [],
+#         illustrators              [],
+#         isbns                     [
+#             [0] MARC::Convert::Wikidata::Object::ISBN
+#         ],
+#         krameriuses               [],
+#         number_of_pages           414,
+#         publishers                [
 #             [0] MARC::Convert::Wikidata::Object::Publisher
 #         ],
-#         translators           []
+#         series                    [],
+#         translators               []
 #     }
 # }
