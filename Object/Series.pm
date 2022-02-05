@@ -128,7 +128,16 @@ Returns string.
  p $obj;
 
  # Output:
- # TODO
+ # MARC::Convert::Wikidata::Object::Series  {
+ #     Parents       Mo::Object
+ #     public methods (6) : BUILD, can (UNIVERSAL), DOES (UNIVERSAL), check_required (Mo::utils), isa (UNIVERSAL), VERSION (UNIVERSAL)
+ #     private methods (1) : __ANON__ (Mo::is)
+ #     internals: {
+ #         name             "Mal� encyklopedie",
+ #         publisher        "Mlad� Fronta",
+ #         series_ordinal   5
+ #     }
+ # }
 
 =head1 DEPENDENCIES
 
