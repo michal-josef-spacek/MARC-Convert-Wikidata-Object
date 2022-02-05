@@ -5,7 +5,8 @@ TODO
 10. Remove url from Kramerius.
 11. Methods in doc for Object.
 12. Doc for Kramerius
-13.
+13. Change publisher in Series to object (like a isbn)
+14.
 
 Applied
 =======
