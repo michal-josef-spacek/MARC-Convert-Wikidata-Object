@@ -30,7 +30,7 @@ requires:
   Error::Pure: 0
   List::MoreUtils: 0
   Mo: 0
-  Mo::utils: 0.06
+  Mo::utils: 0.07
   Readonly: 0
   perl: 5.6.2
 resources:
