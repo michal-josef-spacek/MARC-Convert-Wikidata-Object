@@ -4,7 +4,7 @@ use warnings;
 use English;
 use Error::Pure::Utils qw(clean);
 use MARC::Convert::Wikidata::Object::ISBN;
-use Test::More 'tests' => 5;
+use Test::More 'tests' => 6;
 use Test::NoWarnings;
 
 # Test.
@@ -33,4 +33,15 @@ eval {
 	MARC::Convert::Wikidata::Object::ISBN->new;
 };
 is($EVAL_ERROR, "Parameter 'isbn' is required.\n", "Parameter 'isbn' is required.");
+clean();
+
+# Test.
+eval {
+	MARC::Convert::Wikidata::Object::ISBN->new(
+		'cover' => 'bad',
+		'isbn' => '80-270-8205-6',
+	);
+};
+is($EVAL_ERROR, "ISBN cover 'bad' isn't valid.\n",
+	"ISBN cover 'bad' isn't valid.");
 clean();

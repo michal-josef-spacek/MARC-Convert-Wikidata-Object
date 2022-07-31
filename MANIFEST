@@ -32,8 +32,9 @@ README
 t/MARC-Convert-Wikidata-Object-ISBN/01-use.t
 t/MARC-Convert-Wikidata-Object-ISBN/02-version.t
 t/MARC-Convert-Wikidata-Object-ISBN/03-new.t
-t/MARC-Convert-Wikidata-Object-ISBN/04-isbn.t
-t/MARC-Convert-Wikidata-Object-ISBN/05-type.t
+t/MARC-Convert-Wikidata-Object-ISBN/04-cover.t
+t/MARC-Convert-Wikidata-Object-ISBN/05-isbn.t
+t/MARC-Convert-Wikidata-Object-ISBN/06-type.t
 t/MARC-Convert-Wikidata-Object-Kramerius/01-use.t
 t/MARC-Convert-Wikidata-Object-Kramerius/02-version.t
 t/MARC-Convert-Wikidata-Object-Kramerius/03-new.t
