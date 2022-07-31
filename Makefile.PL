@@ -22,6 +22,7 @@ requires 'Business::ISBN' => 0;
 requires 'DateTime' => 0;
 requires 'Error::Pure' => 0;
 requires 'List::MoreUtils' => 0;
+requires 'List::Util' => 0;
 requires 'Mo' => 0;
 requires 'Mo::utils' => 0.07;
 requires 'Readonly' => 0;

@@ -7,8 +7,16 @@ use Business::ISBN;
 use Error::Pure qw(err);
 use Mo qw(build is);
 use Mo::utils qw(check_isa check_required);
+use List::Util qw(none);
+use Readonly;
+
+Readonly::Array our @COVERS => qw(hardcover paperback);
 
 our $VERSION = 0.01;
+
+has cover => (
+	is => 'ro',
+);
 
 has isbn => (
 	is => 'ro',
@@ -40,6 +48,12 @@ sub BUILD {
 
 	check_isa($self, 'publisher', 'MARC::Convert::Wikidata::Object::Publisher');
 
+	if (defined $self->{'cover'}) {
+		if (none { $self->{'cover'} eq $_ } @COVERS) {
+			err "ISBN cover '$self->{'cover'}' isn't valid.";
+		}
+	}
+
 	return;
 }
 
@@ -60,6 +74,7 @@ MARC::Convert::Wikidata::Object::ISBN - Bibliographic Wikidata object for ISBN n
  use MARC::Convert::Wikidata::Object::ISBN;
 
  my $obj = MARC::Convert::Wikidata::Object::ISBN->new(%params);
+ my $cover = $obj->cover;
  my $isbn = $obj->isbn;
  my $publisher = $obj->publisher;
  my $type = $obj->type;
@@ -75,6 +90,14 @@ Constructor.
 Returns instance of object.
 
 =over 8
+
+=item * C<cover>
+
+ISBN cover.
+
+Parameter is optional. Valid values are: hardback, paperback
+
+Default value is undef.
 
 =item * C<isbn>
 
@@ -92,6 +115,14 @@ Instance of MARC::Convert::Wikidata::Object::Publisher.
 Default value is undef.
 
 =back
+
+=head2 C<cover>
+
+ my $cover = $obj->cover;
+
+Get ISBN cover.
+
+Returns string.
 
 =head2 C<isbn>
 
@@ -122,6 +153,7 @@ Returns number (10 or 13).
  new():
          Parameter 'isbn' is required.
          ISBN '%s' isn't valid.
+         ISBN cover '%s' isn't valid.
          From check_isa():
                  Parameter 'publisher' must be a 'MARC::Convert::Wikidata::Object::Publisher' object.
 
@@ -160,7 +192,9 @@ Returns number (10 or 13).
 L<Business::ISBN>,
 L<Error::Pure>,
 L<Mo>,
-L<Mo::utils>.
+L<Mo::utils>,
+L<List::Util>,
+L<Readonly>.
 
 =head1 SEE ALSO
 
