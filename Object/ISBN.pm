@@ -157,6 +157,7 @@ Returns number (10 or 13).
 
 =head1 DEPENDENCIES
 
+L<Business::ISBN>,
 L<Error::Pure>,
 L<Mo>,
 L<Mo::utils>.
