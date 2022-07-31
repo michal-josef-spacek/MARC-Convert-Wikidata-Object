@@ -10,7 +10,7 @@ use Mo::utils qw(check_isa check_required);
 use List::Util qw(none);
 use Readonly;
 
-Readonly::Array our @COVERS => qw(hardcover paperback);
+Readonly::Array our @COVERS => qw(hardback paperback);
 
 our $VERSION = 0.01;
 

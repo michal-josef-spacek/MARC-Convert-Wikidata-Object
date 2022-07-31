@@ -14,8 +14,8 @@ is($ret, undef, 'Get ISBN cover (undef - default).');
 
 # Test.
 $obj = MARC::Convert::Wikidata::Object::ISBN->new(
-	'cover' => 'hardcover',
+	'cover' => 'hardback',
 	'isbn' => '80-270-8205-6',
 );
 $ret = $obj->cover;
-is($ret, 'hardcover', 'Get ISBN cover (hardcover).');
+is($ret, 'hardback', 'Get ISBN cover (hardback).');
