@@ -86,7 +86,8 @@ has series => (
 	is => 'ro',
 );
 
-has subtitle => (
+has subtitles => (
+	default => [],
 	is => 'ro',
 );
 
@@ -103,8 +104,8 @@ sub full_name {
 	my $self = shift;
 
 	my $full_name = $self->title;
-	if ($self->subtitle) {
-		$full_name .= ': '.$self->subtitle;
+	foreach my $subtitle (@{$self->subtitles}) {
+		$full_name .= ': '.$subtitle;
 	}
 
 	return $full_name;
@@ -156,6 +157,9 @@ sub BUILD {
 	check_array_object($self, 'series',
 		'MARC::Convert::Wikidata::Object::Series', 'Book series');
 
+	# Check series.
+	check_array($self, 'subtitles');
+
 	# Check translators.
 	check_array_object($self, 'translators',
 		'MARC::Convert::Wikidata::Object::People', 'Translator');
@@ -197,7 +201,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $publication_date = $obj->publication_date;
  my $publishers_ar = $obj->publishers;
  my $series_ar = $obj->series;
- my $subtitle = $obj->subtitle;
+ my $subtitles_ar = $obj->subtitles;
  my $title = $obj->title;
  my $translators_ar = $obj->translators;
 
@@ -321,11 +325,12 @@ Reference to array with MARC::Convert::Wikidata::Object::Series instances.
 
 Default value is [].
 
-=item * C<subtitle>
+=item * C<subtitles>
 
-Subtitle of book edition.
+List of subtitles.
+Reference to array with strings.
 
-Default value is undef.
+Default value is [].
 
 =item * C<title>
 
@@ -454,7 +459,11 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Series instances.
 
 =head2 C<subtitle>
 
- my $subtitle = $obj->subtitle;
+ my $subtitles_ar = $obj->subtitles;
+
+Get reference to array with subtitles.
+
+Returns reference to array of strings.
 
 =head2 C<title>
 

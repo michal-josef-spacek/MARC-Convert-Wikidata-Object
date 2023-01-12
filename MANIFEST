@@ -83,7 +83,7 @@ t/MARC-Convert-Wikidata-Object/17-oclc.t
 t/MARC-Convert-Wikidata-Object/18-publication_date.t
 t/MARC-Convert-Wikidata-Object/19-publishers.t
 t/MARC-Convert-Wikidata-Object/20-series.t
-t/MARC-Convert-Wikidata-Object/21-subtitle.t
+t/MARC-Convert-Wikidata-Object/21-subtitles.t
 t/MARC-Convert-Wikidata-Object/22-title.t
 t/MARC-Convert-Wikidata-Object/23-translators.t
 xt/MARC-Convert-Wikidata-Object-ISBN/01-pod_coverage.t

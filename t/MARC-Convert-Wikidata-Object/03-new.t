@@ -56,7 +56,7 @@ $obj = MARC::Convert::Wikidata::Object->new(
 	'number_of_pages' => 10,
 	'publication_date' => 1925,
 	'publishers' => [$publisher],
-	'subtitle' => decode_utf8('Román'),
+	'subtitles' => [decode_utf8('Román')],
 	'title' => 'Krakatit',
 	'translators' => [$translator],
 );

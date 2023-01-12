@@ -23,7 +23,7 @@ SYNOPSIS
      my $publication_date = $obj->publication_date;
      my $publishers_ar = $obj->publishers;
      my $series_ar = $obj->series;
-     my $subtitle = $obj->subtitle;
+     my $subtitles_ar = $obj->subtitles;
      my $title = $obj->title;
      my $translators_ar = $obj->translators;
 
@@ -140,11 +140,11 @@ METHODS
 
             Default value is [].
 
-    *       "subtitle"
+    *       "subtitles"
 
-            Subtitle of book edition.
+            List of subtitles. Reference to array with strings.
 
-            Default value is undef.
+            Default value is [].
 
     *       "title"
 
@@ -259,7 +259,11 @@ METHODS
     instances.
 
   "subtitle"
-     my $subtitle = $obj->subtitle;
+     my $subtitles_ar = $obj->subtitles;
+
+    Get reference to array with subtitles.
+
+    Returns reference to array of strings.
 
   "title"
      my $title = $obj->title;
