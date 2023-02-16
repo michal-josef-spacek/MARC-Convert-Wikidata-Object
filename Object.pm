@@ -6,7 +6,7 @@ use warnings;
 use Error::Pure qw(err);
 use List::MoreUtils qw(none);
 use Mo qw(build default is);
-use Mo::utils qw(check_array check_array_object);
+use Mo::utils qw(check_array check_array_object check_number);
 use Readonly;
 
 Readonly::Array our @COVERS => qw(hardback paperback);
@@ -32,6 +32,10 @@ has compilers => (
 );
 
 has cover => (
+	is => 'ro',
+);
+
+has dml => (
 	is => 'ro',
 );
 
@@ -130,6 +134,9 @@ sub BUILD {
 		err "Book cover '".$self->{'cover'}."' doesn't exist.";
 	}
 
+	# Check dml id
+	check_number($self, 'dml');
+
 	# Check editors.
 	check_array_object($self, 'editors',
 		'MARC::Convert::Wikidata::Object::People', 'Editor');
@@ -189,6 +196,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $ccnb = $obj->ccnb;
  my $compilers = $obj->compilers;
  my $cover = $obj->cover;
+ my $dml = $obj->dml;
  my $edition_number = $obj->edition_number;
  my $editors_ar = $obj->editors;
  my $full_name = $obj->full_name;
@@ -250,6 +258,12 @@ Book cover.
 Possible values:
  * hardback
  * paperback
+
+Default value is undef.
+
+=item * C<dml>
+
+DML id.
 
 Default value is undef.
 
@@ -387,6 +401,14 @@ Get book cover.
 
 Returns string (hardback or paperback).
 
+=head2 C<dml>
+
+ my $dml = $obj->dml;
+
+Get DML id.
+
+Returns number.
+
 =head2 C<edition_number>
 
  my $edition_number = $obj->edition_number;
@@ -495,6 +517,10 @@ Returns reference to array of strings.
                  Parameter 'translators' must be a array.
                  Publisher isn't 'MARC::Convert::Wikidata::Object::Publisher' object.
                  Translator isn't 'MARC::Convert::Wikidata::Object::People' object.
+
+         From Mo::utils::check_number():
+                 Parameter '%s' must a number.
+                         Value: %s
 
 =head1 EXAMPLE1
 

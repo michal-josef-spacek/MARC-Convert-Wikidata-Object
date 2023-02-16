@@ -11,6 +11,7 @@ SYNOPSIS
      my $ccnb = $obj->ccnb;
      my $compilers = $obj->compilers;
      my $cover = $obj->cover;
+     my $dml = $obj->dml;
      my $edition_number = $obj->edition_number;
      my $editors_ar = $obj->editors;
      my $full_name = $obj->full_name;
@@ -65,6 +66,12 @@ METHODS
     *       "cover"
 
             Book cover. Possible values: * hardback * paperback
+
+            Default value is undef.
+
+    *       "dml"
+
+            DML id.
 
             Default value is undef.
 
@@ -197,6 +204,13 @@ METHODS
 
     Returns string (hardback or paperback).
 
+  "dml"
+     my $dml = $obj->dml;
+
+    Get DML id.
+
+    Returns number.
+
   "edition_number"
      my $edition_number = $obj->edition_number;
 
@@ -292,6 +306,10 @@ ERRORS
                      Parameter 'translators' must be a array.
                      Publisher isn't 'MARC::Convert::Wikidata::Object::Publisher' object.
                      Translator isn't 'MARC::Convert::Wikidata::Object::People' object.
+
+             From Mo::utils::check_number():
+                     Parameter '%s' must a number.
+                             Value: %s
 
 EXAMPLE1
      use strict;
