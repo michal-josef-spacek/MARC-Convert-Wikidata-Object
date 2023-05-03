@@ -230,7 +230,7 @@ METHODS
 
     Returns string.
 
-  c<illustrators>
+  "illustrators"
      my $illustrators_ar = $obj->illustrators;
 
     TODO

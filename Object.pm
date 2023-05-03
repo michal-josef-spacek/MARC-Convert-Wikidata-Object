@@ -431,7 +431,7 @@ Get full name of edition in format '__TITLE__: __SUBTITLE__'.
 
 Returns string.
 
-=head2 c<illustrators>
+=head2 C<illustrators>
 
  my $illustrators_ar = $obj->illustrators;
 
