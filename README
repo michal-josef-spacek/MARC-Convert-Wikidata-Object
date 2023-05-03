@@ -19,6 +19,7 @@ SYNOPSIS
      my $isbns_ar = $obj->isbns;
      my $kramerius_ar = $obj->krameriuses;
      my $languages_ar = $obj->languages;
+     my $narrators_ar = $obj->narrators;
      my $number_of_pages = $obj->number_of_pages;
      my $oclc = $obj->oclc;
      my $publication_date = $obj->publication_date;
@@ -112,6 +113,13 @@ METHODS
     *       "languages"
 
             List of languages of book edition (TODO Format)
+
+            Default value is reference to blank array.
+
+    *       "narrators"
+
+            List of narrators. Reference to array with
+            MARC::Convert::Wikidata::Object::People instances.
 
             Default value is reference to blank array.
 
@@ -253,6 +261,14 @@ METHODS
 
     TODO
 
+  "narrators"
+     my $narrators_ar = $obj->narrators;
+
+    Get list of narrators.
+
+    Returns reference to array of MARC::Convert::Wikidata::Object::People
+    instances.
+
   "number_of_pages"
      my $number_of_pages = $obj->number_of_pages;
 
@@ -313,12 +329,14 @@ ERRORS
                      Compiler isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
+                     Narrator isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Parameter 'authors' must be a array.
                      Parameter 'authors_of_introduction' must be a array.
                      Parameter 'compilers' must be a array.
                      Parameter 'editors' must be a array.
                      Parameter 'illustrators' must be a array.
                      Parameter 'languages' must be a array.
+                     Parameter 'narrators' must be a array.
                      Parameter 'publishers' must be a array.
                      Parameter 'series' must be a array.
                      Parameter 'translators' must be a array.

@@ -68,6 +68,11 @@ has krameriuses => (
 	is => 'ro',
 );
 
+has narrators => (
+	default => [],
+	is => 'ro',
+);
+
 has number_of_pages => (
 	is => 'ro',
 );
@@ -156,6 +161,11 @@ sub BUILD {
 	check_array_object($self, 'krameriuses',
 		'MARC::Convert::Wikidata::Object::Kramerius', 'Kramerius');
 
+	# Check narrators.
+	check_array_object($self, 'narrators',
+		'MARC::Convert::Wikidata::Object::People', 'Narrator');
+
+
 	# Check list of publishers.
 	check_array_object($self, 'publishers',
 		'MARC::Convert::Wikidata::Object::Publisher', 'Publisher');
@@ -204,6 +214,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $isbns_ar = $obj->isbns;
  my $kramerius_ar = $obj->krameriuses;
  my $languages_ar = $obj->languages;
+ my $narrators_ar = $obj->narrators;
  my $number_of_pages = $obj->number_of_pages;
  my $oclc = $obj->oclc;
  my $publication_date = $obj->publication_date;
@@ -304,6 +315,13 @@ Default value is reference to blank array.
 =item * C<languages>
 
 List of languages of book edition (TODO Format)
+
+Default value is reference to blank array.
+
+=item * C<narrators>
+
+List of narrators.
+Reference to array with MARC::Convert::Wikidata::Object::People instances.
 
 Default value is reference to blank array.
 
@@ -457,6 +475,14 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
 
 TODO
 
+=head2 C<narrators>
+
+ my $narrators_ar = $obj->narrators;
+
+Get list of narrators.
+
+Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
+
 =head2 C<number_of_pages>
 
  my $number_of_pages = $obj->number_of_pages;
@@ -524,12 +550,14 @@ TODO
                  Compiler isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
+                 Narrator isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Parameter 'authors' must be a array.
                  Parameter 'authors_of_introduction' must be a array.
                  Parameter 'compilers' must be a array.
                  Parameter 'editors' must be a array.
                  Parameter 'illustrators' must be a array.
                  Parameter 'languages' must be a array.
+                 Parameter 'narrators' must be a array.
                  Parameter 'publishers' must be a array.
                  Parameter 'series' must be a array.
                  Parameter 'translators' must be a array.
