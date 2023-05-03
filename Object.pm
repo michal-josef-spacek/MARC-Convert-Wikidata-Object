@@ -35,6 +35,11 @@ has cover => (
 	is => 'ro',
 );
 
+has directors => (
+	default => [],
+	is => 'ro',
+);
+
 has dml => (
 	is => 'ro',
 );
@@ -139,6 +144,10 @@ sub BUILD {
 		err "Book cover '".$self->{'cover'}."' doesn't exist.";
 	}
 
+	# Check directors.
+	check_array_object($self, 'directors',
+		'MARC::Convert::Wikidata::Object::People', 'Director');
+
 	# Check dml id
 	check_number($self, 'dml');
 
@@ -206,6 +215,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $ccnb = $obj->ccnb;
  my $compilers = $obj->compilers;
  my $cover = $obj->cover;
+ my $directors_ar = $obj->directors;
  my $dml = $obj->dml;
  my $edition_number = $obj->edition_number;
  my $editors_ar = $obj->editors;
@@ -271,6 +281,13 @@ Possible values:
  * paperback
 
 Default value is undef.
+
+=item * C<directors>
+
+List of directors.
+Reference to array with MARC::Convert::Wikidata::Object::People instances.
+
+Default value is reference to blank array.
 
 =item * C<dml>
 
@@ -419,6 +436,14 @@ Get book cover.
 
 Returns string (hardback or paperback).
 
+=head2 C<directors>
+
+ my $directors_ar = $obj->directors;
+
+Get list of directors.
+
+Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
+
 =head2 C<dml>
 
  my $dml = $obj->dml;
@@ -548,12 +573,14 @@ TODO
                  Book series isn't 'MARC::Convert::Wikidata::Object::Series' object.
                  Book cover '%s' doesn't exist.
                  Compiler isn't 'MARC::Convert::Wikidata::Object::People' object.
+                 Director isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Narrator isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Parameter 'authors' must be a array.
                  Parameter 'authors_of_introduction' must be a array.
                  Parameter 'compilers' must be a array.
+                 Parameter 'directors' must be a array.
                  Parameter 'editors' must be a array.
                  Parameter 'illustrators' must be a array.
                  Parameter 'languages' must be a array.

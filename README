@@ -11,6 +11,7 @@ SYNOPSIS
      my $ccnb = $obj->ccnb;
      my $compilers = $obj->compilers;
      my $cover = $obj->cover;
+     my $directors_ar = $obj->directors;
      my $dml = $obj->dml;
      my $edition_number = $obj->edition_number;
      my $editors_ar = $obj->editors;
@@ -69,6 +70,13 @@ METHODS
             Book cover. Possible values: * hardback * paperback
 
             Default value is undef.
+
+    *       "directors"
+
+            List of directors. Reference to array with
+            MARC::Convert::Wikidata::Object::People instances.
+
+            Default value is reference to blank array.
 
     *       "dml"
 
@@ -212,6 +220,14 @@ METHODS
 
     Returns string (hardback or paperback).
 
+  "directors"
+     my $directors_ar = $obj->directors;
+
+    Get list of directors.
+
+    Returns reference to array of MARC::Convert::Wikidata::Object::People
+    instances.
+
   "dml"
      my $dml = $obj->dml;
 
@@ -327,12 +343,14 @@ ERRORS
                      Book series isn't 'MARC::Convert::Wikidata::Object::Series' object.
                      Book cover '%s' doesn't exist.
                      Compiler isn't 'MARC::Convert::Wikidata::Object::People' object.
+                     Director isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Editor isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Narrator isn't 'MARC::Convert::Wikidata::Object::People' object.
                      Parameter 'authors' must be a array.
                      Parameter 'authors_of_introduction' must be a array.
                      Parameter 'compilers' must be a array.
+                     Parameter 'directors' must be a array.
                      Parameter 'editors' must be a array.
                      Parameter 'illustrators' must be a array.
                      Parameter 'languages' must be a array.
