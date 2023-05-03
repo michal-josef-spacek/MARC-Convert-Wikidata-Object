@@ -421,6 +421,8 @@ Returns number.
 
  my $editors_ar = $obj->editors;
 
+TODO
+
 =head2 C<full_name>
 
  my $full_name = $obj->full_name;
@@ -433,9 +435,13 @@ Returns string.
 
  my $illustrators_ar = $obj->illustrators;
 
+TODO
+
 =head2 C<isbns>
 
  my $isbns_ar = $obj->isbns;
+
+TODO
 
 =head2 c<krameriuses>
 
@@ -449,9 +455,13 @@ Returns reference to array of MARC::Convert::Wikidata::Object::Kramerius instanc
 
  my $languages_ar = $obj->languages;
 
+TODO
+
 =head2 C<number_of_pages>
 
  my $number_of_pages = $obj->number_of_pages;
+
+TODO
 
 =head2 C<oclc>
 
@@ -465,9 +475,13 @@ Returns string.
 
  my $publication_date = $obj->publication_date;
 
+TODO
+
 =head2 C<publishers>
 
  my $publishers_ar = $obj->publishers;
+
+TODO
 
 Returns reference to array of MARC::Convert::Wikidata::Object::Publisher instances.
 
@@ -491,9 +505,13 @@ Returns reference to array of strings.
 
  my $title = $obj->title;
 
+TODO
+
 =head2 C<translators>
 
  my $translators_ar = $obj->translators;
+
+TODO
 
 =head1 ERRORS
 

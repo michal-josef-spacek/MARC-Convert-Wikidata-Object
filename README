@@ -221,6 +221,8 @@ METHODS
   "editors"
      my $editors_ar = $obj->editors;
 
+    TODO
+
   "full_name"
      my $full_name = $obj->full_name;
 
@@ -231,8 +233,12 @@ METHODS
   c<illustrators>
      my $illustrators_ar = $obj->illustrators;
 
+    TODO
+
   "isbns"
      my $isbns_ar = $obj->isbns;
+
+    TODO
 
   c<krameriuses>
      my $kramerius_ar = $obj->krameriuses;
@@ -245,8 +251,12 @@ METHODS
   "languages"
      my $languages_ar = $obj->languages;
 
+    TODO
+
   "number_of_pages"
      my $number_of_pages = $obj->number_of_pages;
+
+    TODO
 
   "oclc"
      my $oclc = $obj->oclc;
@@ -258,8 +268,12 @@ METHODS
   "publication_date"
      my $publication_date = $obj->publication_date;
 
+    TODO
+
   "publishers"
      my $publishers_ar = $obj->publishers;
+
+    TODO
 
     Returns reference to array of MARC::Convert::Wikidata::Object::Publisher
     instances.
@@ -282,8 +296,12 @@ METHODS
   "title"
      my $title = $obj->title;
 
+    TODO
+
   "translators"
      my $translators_ar = $obj->translators;
+
+    TODO
 
 ERRORS
      new():
