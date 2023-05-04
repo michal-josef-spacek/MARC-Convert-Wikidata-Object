@@ -214,8 +214,8 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  use MARC::Convert::Wikidata::Object;
 
  my $obj = MARC::Convert::Wikidata::Object->new(%params);
- my $authors_of_introduction_ar = $obj->authors_of_introduction;
  my $authors_ar = $obj->authors;
+ my $authors_of_introduction_ar = $obj->authors_of_introduction;
  my $ccnb = $obj->ccnb;
  my $compilers = $obj->compilers;
  my $cover = $obj->cover;
