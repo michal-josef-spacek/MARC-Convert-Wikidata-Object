@@ -26,5 +26,5 @@ my $author = MARC::Convert::Wikidata::Object::People->new(
 $obj = MARC::Convert::Wikidata::Object->new(
 	'authors_of_introduction' => [$author],
 );
-my @authors = $obj->authors;
+my @authors = $obj->authors_of_introduction;
 is(@authors, 1, 'Get number of authors of introduction.');
