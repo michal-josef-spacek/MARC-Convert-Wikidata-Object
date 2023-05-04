@@ -497,7 +497,7 @@ TODO
 
 TODO
 
-=head C<issn>
+=head2 C<issn>
 
  my $issn = $obj->issn;
 
