@@ -40,6 +40,13 @@ METHODS
 
     Returns instance of object.
 
+    *       "authors"
+
+            List of authors. Reference to array with
+            MARC::Convert::Wikidata::Object::People instances.
+
+            Default value is reference to blank array.
+
     *       "authors_of_afterword"
 
             List of authors of afterword. Reference to array with
@@ -50,13 +57,6 @@ METHODS
     *       "authors_of_introduction"
 
             List of authors of introduction. Reference to array with
-            MARC::Convert::Wikidata::Object::People instances.
-
-            Default value is reference to blank array.
-
-    *       "authors"
-
-            List of authors. Reference to array with
             MARC::Convert::Wikidata::Object::People instances.
 
             Default value is reference to blank array.

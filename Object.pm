@@ -137,6 +137,10 @@ sub full_name {
 sub BUILD {
 	my $self = shift;
 
+	# Check authors.
+	check_array_object($self, 'authors',
+		'MARC::Convert::Wikidata::Object::People', 'Author');
+
 	# Check authors of introduction.
 	check_array_object($self, 'authors_of_afterword',
 		'MARC::Convert::Wikidata::Object::People', 'Author of afterword');
@@ -144,10 +148,6 @@ sub BUILD {
 	# Check authors of introduction.
 	check_array_object($self, 'authors_of_introduction',
 		'MARC::Convert::Wikidata::Object::People', 'Author of introduction');
-
-	# Check authors.
-	check_array_object($self, 'authors',
-		'MARC::Convert::Wikidata::Object::People', 'Author');
 
 	# Check compilers.
 	check_array_object($self, 'compilers',
@@ -261,6 +261,13 @@ Returns instance of object.
 
 =over 8
 
+=item * C<authors>
+
+List of authors.
+Reference to array with MARC::Convert::Wikidata::Object::People instances.
+
+Default value is reference to blank array.
+
 =item * C<authors_of_afterword>
 
 List of authors of afterword.
@@ -271,13 +278,6 @@ Default value is reference to blank array.
 =item * C<authors_of_introduction>
 
 List of authors of introduction.
-Reference to array with MARC::Convert::Wikidata::Object::People instances.
-
-Default value is reference to blank array.
-
-=item * C<authors>
-
-List of authors.
 Reference to array with MARC::Convert::Wikidata::Object::People instances.
 
 Default value is reference to blank array.

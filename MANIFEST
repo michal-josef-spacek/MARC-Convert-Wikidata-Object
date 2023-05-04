@@ -66,9 +66,9 @@ t/MARC-Convert-Wikidata-Object-Utils/04-check_date_order.t
 t/MARC-Convert-Wikidata-Object/01-use.t
 t/MARC-Convert-Wikidata-Object/02-version.t
 t/MARC-Convert-Wikidata-Object/03-new.t
-t/MARC-Convert-Wikidata-Object/04-authors_of_introduction.t
-t/MARC-Convert-Wikidata-Object/05-authors.t
-t/MARC-Convert-Wikidata-Object/06-authors_of_afterword.t
+t/MARC-Convert-Wikidata-Object/04-authors.t
+t/MARC-Convert-Wikidata-Object/05-authors_of_afterword.t
+t/MARC-Convert-Wikidata-Object/06-authors_of_introduction.t
 t/MARC-Convert-Wikidata-Object/07-ccnb.t
 t/MARC-Convert-Wikidata-Object/08-compilers.t
 t/MARC-Convert-Wikidata-Object/09-cover.t
