@@ -63,6 +63,10 @@ has isbns => (
 	is => 'ro',
 );
 
+has issn => (
+	is => 'ro',
+);
+
 has languages => (
 	default => [],
 	is => 'ro',
@@ -222,6 +226,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $full_name = $obj->full_name;
  my $illustrators_ar = $obj->illustrators;
  my $isbns_ar = $obj->isbns;
+ my $issn = $obj->issn;
  my $kramerius_ar = $obj->krameriuses;
  my $languages_ar = $obj->languages;
  my $narrators_ar = $obj->narrators;
@@ -321,6 +326,12 @@ List of ISBNs.
 Reference to array with MARC::Convert::Wikidata::Object::ISBN instances.
 
 Default value is reference to blank array.
+
+=item * C<issn>
+
+ISSN number.
+
+Default value is undef.
 
 =item * C<krameriuses>
 
@@ -485,6 +496,14 @@ TODO
  my $isbns_ar = $obj->isbns;
 
 TODO
+
+=head C<issn>
+
+ my $issn = $obj->issn;
+
+Get ISSN number.
+
+Returns string.
 
 =head2 c<krameriuses>
 
