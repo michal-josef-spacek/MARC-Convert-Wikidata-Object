@@ -18,6 +18,7 @@ SYNOPSIS
      my $full_name = $obj->full_name;
      my $illustrators_ar = $obj->illustrators;
      my $isbns_ar = $obj->isbns;
+     my $issn = $obj->issn;
      my $kramerius_ar = $obj->krameriuses;
      my $languages_ar = $obj->languages;
      my $narrators_ar = $obj->narrators;
@@ -110,6 +111,12 @@ METHODS
             MARC::Convert::Wikidata::Object::ISBN instances.
 
             Default value is reference to blank array.
+
+    *       "issn"
+
+            ISSN number.
+
+            Default value is undef.
 
     *       "krameriuses"
 
@@ -263,6 +270,13 @@ METHODS
      my $isbns_ar = $obj->isbns;
 
     TODO
+
+  "issn"
+     my $issn = $obj->issn;
+
+    Get ISSN number.
+
+    Returns string.
 
   c<krameriuses>
      my $kramerius_ar = $obj->krameriuses;
