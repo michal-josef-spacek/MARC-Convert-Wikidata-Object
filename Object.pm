@@ -18,6 +18,11 @@ has authors => (
 	is => 'ro',
 );
 
+has authors_of_afterword => (
+	default => [],
+	is => 'ro',
+);
+
 has authors_of_introduction => (
 	default => [],
 	is => 'ro',
@@ -133,6 +138,10 @@ sub BUILD {
 	my $self = shift;
 
 	# Check authors of introduction.
+	check_array_object($self, 'authors_of_afterword',
+		'MARC::Convert::Wikidata::Object::People', 'Author of afterword');
+
+	# Check authors of introduction.
 	check_array_object($self, 'authors_of_introduction',
 		'MARC::Convert::Wikidata::Object::People', 'Author of introduction');
 
@@ -215,6 +224,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
 
  my $obj = MARC::Convert::Wikidata::Object->new(%params);
  my $authors_ar = $obj->authors;
+ my $authors_of_afterword_ar = $obj->authors_of_afterword;
  my $authors_of_introduction_ar = $obj->authors_of_introduction;
  my $ccnb = $obj->ccnb;
  my $compilers = $obj->compilers;
@@ -250,6 +260,13 @@ Constructor.
 Returns instance of object.
 
 =over 8
+
+=item * C<authors_of_afterword>
+
+List of authors of afterword.
+Reference to array with MARC::Convert::Wikidata::Object::People instances.
+
+Default value is reference to blank array.
 
 =item * C<authors_of_introduction>
 
@@ -412,6 +429,14 @@ Default value is reference to blank array.
  my $authors_ar = $obj->authors;
 
 Get reference to array with author objects.
+
+Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
+
+=head2 C<authors_of_afterword>
+
+ my $authors_of_afterword_ar = $obj->authors_of_afterword;
+
+Get reference to array with author of afterword objects.
 
 Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
 
@@ -588,6 +613,7 @@ TODO
  new():
          From Mo::utils::check_array_object():
                  Author isn't 'MARC::Convert::Wikidata::Object::People' object.
+                 Author of afterword isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Author of introduction isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Book series isn't 'MARC::Convert::Wikidata::Object::Series' object.
                  Book cover '%s' doesn't exist.
@@ -597,6 +623,7 @@ TODO
                  Illustrator isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Narrator isn't 'MARC::Convert::Wikidata::Object::People' object.
                  Parameter 'authors' must be a array.
+                 Parameter 'authors_of_afterword' must be a array.
                  Parameter 'authors_of_introduction' must be a array.
                  Parameter 'compilers' must be a array.
                  Parameter 'directors' must be a array.
