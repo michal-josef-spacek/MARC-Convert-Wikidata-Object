@@ -99,6 +99,11 @@ has oclc => (
 	is => 'ro',
 );
 
+has photographers => (
+	default => [],
+	is => 'ro',
+);
+
 has publication_date => (
 	is => 'ro',
 );
@@ -198,6 +203,10 @@ sub BUILD {
 	check_array_object($self, 'narrators',
 		'MARC::Convert::Wikidata::Object::People', 'Narrator');
 
+	# Check photographers.
+	check_array_object($self, 'photographers',
+		'MARC::Convert::Wikidata::Object::People', 'Photographers');
+
 	# Check list of publishers.
 	check_array_object($self, 'publishers',
 		'MARC::Convert::Wikidata::Object::Publisher', 'Publisher');
@@ -256,6 +265,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $narrators_ar = $obj->narrators;
  my $number_of_pages = $obj->number_of_pages;
  my $oclc = $obj->oclc;
+ my $photographers_ar = $obj->photographers;
  my $publication_date = $obj->publication_date;
  my $publishers_ar = $obj->publishers;
  my $series_ar = $obj->series;
@@ -402,6 +412,13 @@ Default value is undef.
 OCLC control number.
 
 Default value is undef.
+
+=item * C<photographers>
+
+List of photographers.
+Reference to array with MARC::Convert::Wikidata::Object::People instances.
+
+Default value is reference to blank array.
 
 =item * C<publication_date>
 
@@ -600,6 +617,14 @@ TODO
 Get OCLC control number.
 
 Returns string.
+
+=head2 C<photographers>
+
+ my $photographers_ar = $obj->photographers;
+
+Get reference to array with photographers objects.
+
+Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
 
 =head2 C<publication_date>
 
