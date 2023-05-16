@@ -16,6 +16,7 @@ SYNOPSIS
      my $dml = $obj->dml;
      my $edition_number = $obj->edition_number;
      my $editors_ar = $obj->editors;
+     my $end_time = $obj->end_time;
      my $full_name = $obj->full_name;
      my $illustrators_ar = $obj->illustrators;
      my $isbns_ar = $obj->isbns;
@@ -28,6 +29,7 @@ SYNOPSIS
      my $publication_date = $obj->publication_date;
      my $publishers_ar = $obj->publishers;
      my $series_ar = $obj->series;
+     my $start_time = $obj->start_time;
      my $subtitles_ar = $obj->subtitles;
      my $title = $obj->title;
      my $translators_ar = $obj->translators;
@@ -106,6 +108,12 @@ METHODS
 
             Default value is reference to blank array.
 
+    *       "end_time"
+
+            End time.
+
+            Default value is undef.
+
     *       "illustrators"
 
             List of illustrators. Reference to array with
@@ -177,6 +185,12 @@ METHODS
             MARC::Convert::Wikidata::Object::Series instances.
 
             Default value is [].
+
+    *       "start_time"
+
+            Start time.
+
+            Default value is undef.
 
     *       "subtitles"
 
@@ -270,6 +284,13 @@ METHODS
 
     TODO
 
+  "end_time"
+     my $end_time = $obj->end_time;
+
+    Get end time.
+
+    Returns number.
+
   "full_name"
      my $full_name = $obj->full_name;
 
@@ -348,6 +369,13 @@ METHODS
     Returns reference to array of MARC::Convert::Wikidata::Object::Series
     instances.
 
+  "start_time"
+     my $start_time = $obj->start_time;
+
+    Get start time.
+
+    Returns number.
+
   "subtitle"
      my $subtitles_ar = $obj->subtitles;
 
@@ -384,11 +412,13 @@ ERRORS
                      Parameter 'compilers' must be a array.
                      Parameter 'directors' must be a array.
                      Parameter 'editors' must be a array.
+                     Parameter 'end_time' must be a number.
                      Parameter 'illustrators' must be a array.
                      Parameter 'languages' must be a array.
                      Parameter 'narrators' must be a array.
                      Parameter 'publishers' must be a array.
                      Parameter 'series' must be a array.
+                     Parameter 'start_time' must be a number.
                      Parameter 'translators' must be a array.
                      Publisher isn't 'MARC::Convert::Wikidata::Object::Publisher' object.
                      Translator isn't 'MARC::Convert::Wikidata::Object::People' object.

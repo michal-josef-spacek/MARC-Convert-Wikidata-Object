@@ -58,6 +58,10 @@ has editors => (
 	is => 'ro',
 );
 
+has end_time => (
+	is => 'ro',
+);
+
 has illustrators => (
 	default => [],
 	is => 'ro',
@@ -106,6 +110,10 @@ has publishers => (
 
 has series => (
 	default => [],
+	is => 'ro',
+);
+
+has start_time => (
 	is => 'ro',
 );
 
@@ -168,6 +176,9 @@ sub BUILD {
 	check_array_object($self, 'editors',
 		'MARC::Convert::Wikidata::Object::People', 'Editor');
 
+	# Check end_time.
+	check_number($self, 'end_time');
+
 	# Check illustrators.
 	check_array_object($self, 'illustrators',
 		'MARC::Convert::Wikidata::Object::People', 'Illustrator');
@@ -187,7 +198,6 @@ sub BUILD {
 	check_array_object($self, 'narrators',
 		'MARC::Convert::Wikidata::Object::People', 'Narrator');
 
-
 	# Check list of publishers.
 	check_array_object($self, 'publishers',
 		'MARC::Convert::Wikidata::Object::Publisher', 'Publisher');
@@ -195,6 +205,9 @@ sub BUILD {
 	# Check series.
 	check_array_object($self, 'series',
 		'MARC::Convert::Wikidata::Object::Series', 'Book series');
+
+	# Check start_time.
+	check_number($self, 'start_time');
 
 	# Check series.
 	check_array($self, 'subtitles');
@@ -233,6 +246,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $dml = $obj->dml;
  my $edition_number = $obj->edition_number;
  my $editors_ar = $obj->editors;
+ my $end_time = $obj->end_time;
  my $full_name = $obj->full_name;
  my $illustrators_ar = $obj->illustrators;
  my $isbns_ar = $obj->isbns;
@@ -245,6 +259,7 @@ MARC::Convert::Wikidata::Object - Bibliographic Wikidata object defined by MARC 
  my $publication_date = $obj->publication_date;
  my $publishers_ar = $obj->publishers;
  my $series_ar = $obj->series;
+ my $start_time = $obj->start_time;
  my $subtitles_ar = $obj->subtitles;
  my $title = $obj->title;
  my $translators_ar = $obj->translators;
@@ -330,6 +345,12 @@ Reference to array with MARC::Convert::Wikidata::Object::People instances.
 
 Default value is reference to blank array.
 
+=item * C<end_time>
+
+End time.
+
+Default value is undef.
+
 =item * C<illustrators>
 
 List of illustrators.
@@ -401,6 +422,12 @@ List of book series.
 Reference to array with MARC::Convert::Wikidata::Object::Series instances.
 
 Default value is [].
+
+=item * C<start_time>
+
+Start time.
+
+Default value is undef.
 
 =item * C<subtitles>
 
@@ -502,6 +529,14 @@ Returns number.
 
 TODO
 
+=head2 C<end_time>
+
+ my $end_time = $obj->end_time;
+
+Get end time.
+
+Returns number.
+
 =head2 C<full_name>
 
  my $full_name = $obj->full_name;
@@ -588,6 +623,14 @@ Get reference to array with Serie item objects.
 
 Returns reference to array of MARC::Convert::Wikidata::Object::Series instances.
 
+=head2 C<start_time>
+
+ my $start_time = $obj->start_time;
+
+Get start time.
+
+Returns number.
+
 =head2 C<subtitle>
 
  my $subtitles_ar = $obj->subtitles;
@@ -628,11 +671,13 @@ TODO
                  Parameter 'compilers' must be a array.
                  Parameter 'directors' must be a array.
                  Parameter 'editors' must be a array.
+                 Parameter 'end_time' must be a number.
                  Parameter 'illustrators' must be a array.
                  Parameter 'languages' must be a array.
                  Parameter 'narrators' must be a array.
                  Parameter 'publishers' must be a array.
                  Parameter 'series' must be a array.
+                 Parameter 'start_time' must be a number.
                  Parameter 'translators' must be a array.
                  Publisher isn't 'MARC::Convert::Wikidata::Object::Publisher' object.
                  Translator isn't 'MARC::Convert::Wikidata::Object::People' object.
