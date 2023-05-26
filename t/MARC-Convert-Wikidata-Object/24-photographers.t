@@ -26,5 +26,5 @@ my $photographer = MARC::Convert::Wikidata::Object::People->new(
 $obj = MARC::Convert::Wikidata::Object->new(
 	'photographers' => [$photographer],
 );
-my @photographer = $obj->photographers;
-is(@photoraphers, 1, 'Get number of photohraphers.');
+my @photographers = $obj->photographers;
+is(@photographers, 1, 'Get number of photoigraphers.');
