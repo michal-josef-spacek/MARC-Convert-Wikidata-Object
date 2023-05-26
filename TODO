@@ -8,7 +8,8 @@ TODO
 13. Change publisher in Series to object (like a isbn)
 14. Rewrite output in doc examples to explicit print (because encoding to utf8 in Data::Printer)
 15. Object for Date with qualifiers like 'sourcing circumstances', etc.
-16.
+16. Remove TODOs from doc.
+17.
 
 Applied
 =======
