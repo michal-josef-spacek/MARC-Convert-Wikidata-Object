@@ -159,6 +159,8 @@ Returns number (10 or 13).
 
 =head1 EXAMPLE1
 
+=for comment filename=create_and_dump_isbn.pl
+
  use strict;
  use warnings;
 

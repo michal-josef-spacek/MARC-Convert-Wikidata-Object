@@ -95,6 +95,8 @@ Returns string.
 
 =head1 EXAMPLE1
 
+=for comment filename=create_and_dump_publisher.pl
+
  use strict;
  use warnings;
 
