@@ -29,6 +29,7 @@ Object/Publisher.pm
 Object/Series.pm
 Object/Utils.pm
 README
+SIGNATURE
 t/MARC-Convert-Wikidata-Object-ISBN/01-use.t
 t/MARC-Convert-Wikidata-Object-ISBN/02-version.t
 t/MARC-Convert-Wikidata-Object-ISBN/03-new.t
