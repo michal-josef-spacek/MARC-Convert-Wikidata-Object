@@ -6,7 +6,7 @@ use warnings;
 use MARC::Convert::Wikidata::Object::Utils qw(check_date check_date_order);
 use Mo qw(build is);
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 has date_of_birth => (
 	is => 'ro',
@@ -227,6 +227,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.01
+0.02
 
 =cut
