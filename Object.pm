@@ -33,6 +33,7 @@ has ccnb => (
 );
 
 has compilers => (
+	default => [],
 	is => 'ro',
 );
 
