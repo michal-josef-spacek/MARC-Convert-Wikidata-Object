@@ -5,7 +5,7 @@ use warnings;
 
 use Mo qw(is);
 
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 has kramerius_id => (
 	is => 'ro',
