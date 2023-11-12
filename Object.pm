@@ -505,7 +505,7 @@ Returns string.
 
  my $compilers_ar = $obj->compilers;
 
-Get reference to array with compiler objects.
+Get list of compilers.
 
 Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
 
@@ -545,7 +545,9 @@ Returns number.
 
  my $editors_ar = $obj->editors;
 
-TODO
+Get list of editors.
+
+Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
 
 =head2 C<end_time>
 
@@ -567,13 +569,17 @@ Returns string.
 
  my $illustrators_ar = $obj->illustrators;
 
-TODO
+Get list of illustrators.
+
+Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
 
 =head2 C<isbns>
 
  my $isbns_ar = $obj->isbns;
 
-TODO
+Get list of ISBNs.
+
+Returns reference to array of MARC::Convert::Wikidata::Object::ISBN instances.
 
 =head2 C<issn>
 
@@ -637,7 +643,7 @@ TODO
 
  my $publishers_ar = $obj->publishers;
 
-TODO
+Get list of publishing houses.
 
 Returns reference to array of MARC::Convert::Wikidata::Object::Publisher instances.
 
@@ -669,13 +675,17 @@ Returns reference to array of strings.
 
  my $title = $obj->title;
 
-TODO
+Get title.
+
+Returns string.
 
 =head2 C<translators>
 
  my $translators_ar = $obj->translators;
 
-TODO
+Get list of translators.
+
+Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
 
 =head1 ERRORS
 
