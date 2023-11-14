@@ -9,7 +9,6 @@ TODO
 14. Rewrite output in doc examples to explicit print (because encoding to utf8 in Data::Printer)
 15. Object for Date with qualifiers like 'sourcing circumstances', etc.
 16. Remove TODOs from doc.
-17. Move utils to Mo::utils::Date
 18. 
 
 Applied
@@ -35,3 +34,6 @@ OK [20220121] skim
 
 5. more isbn in record
 OK [20220125] skim
+
+17. Move utils to Mo::utils::Date
+OK [20231114] skim

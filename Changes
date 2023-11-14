@@ -1,4 +1,5 @@
 0.03
+ - Move MARC::Convert::Wikidata::Object::Utils to Mo::utils::Date.
 
 0.02 2023-11-13T00:00:03+01:00
  - Add "defaults => []" for 'compilers' parameter. Same as other.
