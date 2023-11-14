@@ -1,5 +1,6 @@
 Changes
 examples/create_and_dump_isbn.pl
+examples/create_and_dump_kramerius.pl
 examples/create_and_dump_people.pl
 examples/create_and_dump_publisher.pl
 examples/create_and_dump_series.pl

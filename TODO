@@ -4,7 +4,6 @@ TODO
 9. required values in Kramerius
 10. Remove url from Kramerius.
 11. Methods in doc for Object.
-12. Doc for Kramerius
 13. Change publisher in Series to object (like a isbn)
 14. Rewrite output in doc examples to explicit print (because encoding to utf8 in Data::Printer)
 15. Object for Date with qualifiers like 'sourcing circumstances', etc.
@@ -37,4 +36,7 @@ OK [20220121] skim
 OK [20220125] skim
 
 17. Move utils to Mo::utils::Date
+OK [20231114] skim
+
+12. Doc for Kramerius
 OK [20231114] skim
