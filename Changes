@@ -1,4 +1,4 @@
-0.03
+0.03 2023-11-14T15:21:19+01:00
  - Add doc for Kramerius object.
  - Add test for Kramerius url() method.
  - Move MARC::Convert::Wikidata::Object::Utils to Mo::utils::Date.
