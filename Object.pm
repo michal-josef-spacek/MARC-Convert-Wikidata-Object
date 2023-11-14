@@ -11,7 +11,7 @@ use Readonly;
 
 Readonly::Array our @COVERS => qw(hardback paperback);
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 has authors => (
 	default => [],
@@ -830,6 +830,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.03
+0.04
 
 =cut

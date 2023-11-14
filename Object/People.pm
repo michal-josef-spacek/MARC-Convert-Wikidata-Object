@@ -6,7 +6,7 @@ use warnings;
 use Mo qw(build is);
 use Mo::utils::Date qw(check_date check_date_order);
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 has date_of_birth => (
 	is => 'ro',
@@ -227,6 +227,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.03
+0.04
 
 =cut
