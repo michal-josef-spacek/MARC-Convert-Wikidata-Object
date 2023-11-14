@@ -38,6 +38,7 @@ t/MARC-Convert-Wikidata-Object-Kramerius/02-version.t
 t/MARC-Convert-Wikidata-Object-Kramerius/03-new.t
 t/MARC-Convert-Wikidata-Object-Kramerius/04-kramerius_id.t
 t/MARC-Convert-Wikidata-Object-Kramerius/05-object_id.t
+t/MARC-Convert-Wikidata-Object-Kramerius/06-url.t
 t/MARC-Convert-Wikidata-Object-People/01-use.t
 t/MARC-Convert-Wikidata-Object-People/02-version.t
 t/MARC-Convert-Wikidata-Object-People/03-new.t
