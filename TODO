@@ -8,7 +8,8 @@ TODO
 15. Object for Date with qualifiers like 'sourcing circumstances', etc.
 16. Remove TODOs from doc.
 18. Control of publication_date value? Not controlled now.
-19.
+19. Object has start_time with check_number(). Is it ok?
+20.
 
 Applied
 =======
