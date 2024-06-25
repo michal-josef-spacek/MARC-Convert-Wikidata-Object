@@ -3,6 +3,7 @@
  - API change: Add work_period_start and work_period_end getter methods to
    MARC::Convert::Wikidata::Object::People class
  - API change: Rewrite publisher parameter in Series to Publisher object.
+ - Add tests for Series.
  - Improve Series doc.
  - Update copyright years.
 
