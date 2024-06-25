@@ -114,7 +114,8 @@ Returns string.
                  Parameter 'publisher' must be a 'MARC::Convert::Wikidata::Object::Publisher' object.
                          Value: %s
                          Reference: %s
-         Parameter 'name' is required.
+         From Mo::utils::check_required():
+                 Parameter 'name' is required.
 
 =head1 EXAMPLE1
 
