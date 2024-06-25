@@ -16,6 +16,14 @@ has date_of_death => (
 	is => 'ro',
 );
 
+has work_period_start => (
+	is => 'ro',
+);
+
+has work_period_end => (
+	is => 'ro',
+);
+
 has name => (
 	is => 'ro',
 );
@@ -35,6 +43,11 @@ sub BUILD {
 	check_date($self, 'date_of_death');
 
 	check_date_order($self, 'date_of_birth', 'date_of_death');
+
+	check_date($self, 'work_period_start');
+	check_date($self, 'work_period_end');
+
+	check_date_order($self, 'work_period_start', 'work_period_end');
 
 	return;
 }
@@ -58,6 +71,8 @@ MARC::Convert::Wikidata::Object::People - Bibliographic Wikidata object for peop
  my $obj = MARC::Convert::Wikidata::Object::People->new(%params);
  my $date_of_birth = $obj->date_of_birth;
  my $date_of_death = $obj->date_of_death;
+ my $work_period_start = $obj->work_period_start;
+ my $work_period_end = $obj->work_period_end;
  my $name = $obj->name;
  my $nkcr_aut = $obj->nkcr_aut;
  my $surname = $obj->surname;
@@ -123,6 +138,22 @@ Returns string.
  my $date_of_death = $obj->date_of_death;
 
 Get date of death.
+
+Returns string.
+
+=head2 C<work_period_start>
+
+ my $work_period_start = $obj->work_period_start;
+
+Get start date of work period.
+
+Returns string.
+
+=head2 C<work_period_end>
+
+ my $work_period_end = $obj->work_period_end;
+
+Get end date of work period.
 
 Returns string.
 
