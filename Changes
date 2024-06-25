@@ -1,6 +1,7 @@
 0.04
  - API change: Add work_period_start and work_period_end getter methods to
    MARC::Convert::Wikidata::Object::People class
+ - API change: Rewrite publisher parameter in Series to Publisher object.
  - Update copyright years.
 
 0.03 2023-11-14T15:21:19+01:00
