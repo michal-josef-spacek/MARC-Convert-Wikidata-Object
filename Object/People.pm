@@ -71,6 +71,8 @@ MARC::Convert::Wikidata::Object::People - Bibliographic Wikidata object for peop
  my $obj = MARC::Convert::Wikidata::Object::People->new(%params);
  my $date_of_birth = $obj->date_of_birth;
  my $date_of_death = $obj->date_of_death;
+ my $work_period_start = $obj->work_period_start;
+ my $work_period_end = $obj->work_period_end;
  my $name = $obj->name;
  my $nkcr_aut = $obj->nkcr_aut;
  my $surname = $obj->surname;
@@ -141,7 +143,7 @@ Returns string.
 
 =head2 C<work_period_start>
 
- my work_period_start = $obj->work_period_start;
+ my $work_period_start = $obj->work_period_start;
 
 Get start date of work period.
 
@@ -149,7 +151,7 @@ Returns string.
 
 =head2 C<work_period_end>
 
- my work_period_end = $obj->work_period_end;
+ my $work_period_end = $obj->work_period_end;
 
 Get end date of work period.
 
