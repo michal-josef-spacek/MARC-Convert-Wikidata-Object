@@ -6,7 +6,7 @@ use warnings;
 use Business::ISBN;
 use Error::Pure qw(err);
 use Mo qw(build is);
-use Mo::utils qw(check_isa check_required);
+use Mo::utils 0.08 qw(check_isa check_required);
 use List::Util qw(none);
 use Readonly;
 

@@ -4,6 +4,7 @@
    MARC::Convert::Wikidata::Object::People class
  - API change: Rewrite publisher parameter in Series to Publisher object.
  - Add tests for Series.
+ - Fix minimal versions of Mo::utils*.
  - Improve Series doc.
  - Update copyright years.
 

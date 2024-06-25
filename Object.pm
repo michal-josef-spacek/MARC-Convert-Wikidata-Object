@@ -6,7 +6,7 @@ use warnings;
 use Error::Pure qw(err);
 use List::MoreUtils qw(none);
 use Mo qw(build default is);
-use Mo::utils qw(check_array check_array_object check_number);
+use Mo::utils 0.26 qw(check_array check_array_object check_number);
 use Readonly;
 
 Readonly::Array our @COVERS => qw(hardback paperback);
