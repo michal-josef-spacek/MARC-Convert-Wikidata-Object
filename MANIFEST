@@ -54,9 +54,7 @@ t/MARC-Convert-Wikidata-Object-Publisher/01-use.t
 t/MARC-Convert-Wikidata-Object-Publisher/02-version.t
 t/MARC-Convert-Wikidata-Object-Publisher/03-new.t
 t/MARC-Convert-Wikidata-Object-Publisher/04-id.t
-t/MARC-Convert-Wikidata-Object-Publisher/04-name.t
 t/MARC-Convert-Wikidata-Object-Publisher/05-name.t
-t/MARC-Convert-Wikidata-Object-Publisher/05-place.t
 t/MARC-Convert-Wikidata-Object-Publisher/06-place.t
 t/MARC-Convert-Wikidata-Object-Series/01-use.t
 t/MARC-Convert-Wikidata-Object-Series/02-version.t
