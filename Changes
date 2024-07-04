@@ -1,3 +1,5 @@
+0.06
+
 0.05 2024-07-04T21:29:18+02:00
  - API change: Add 'external_ids' parameter to Object object.
  - API change: Add 'external_ids' parameter to People object.
