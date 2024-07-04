@@ -85,6 +85,7 @@ t/MARC-Convert-Wikidata-Object/11-dml.t
 t/MARC-Convert-Wikidata-Object/11-end_time.t
 t/MARC-Convert-Wikidata-Object/12-edition_number.t
 t/MARC-Convert-Wikidata-Object/13-editors.t
+t/MARC-Convert-Wikidata-Object/14-external_ids.t
 t/MARC-Convert-Wikidata-Object/15-full_name.t
 t/MARC-Convert-Wikidata-Object/16-illustrators.t
 t/MARC-Convert-Wikidata-Object/17-isbns.t
