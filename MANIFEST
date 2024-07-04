@@ -1,4 +1,5 @@
 Changes
+examples/create_and_dump_external_id.pl
 examples/create_and_dump_isbn.pl
 examples/create_and_dump_kramerius.pl
 examples/create_and_dump_people.pl
@@ -21,6 +22,7 @@ Makefile.PL
 MANIFEST			This list of files
 META.yml
 Object.pm
+Object/ExternalId.pm
 Object/ISBN.pm
 Object/Kramerius.pm
 Object/People.pm
@@ -28,6 +30,12 @@ Object/Publisher.pm
 Object/Series.pm
 README
 SIGNATURE
+t/MARC-Convert-Wikidata-Object-ExternalId/01-use.t
+t/MARC-Convert-Wikidata-Object-ExternalId/02-version.t
+t/MARC-Convert-Wikidata-Object-ExternalId/03-new.t
+t/MARC-Convert-Wikidata-Object-ExternalId/04-deprecated.t
+t/MARC-Convert-Wikidata-Object-ExternalId/05-name.t
+t/MARC-Convert-Wikidata-Object-ExternalId/06-value.t
 t/MARC-Convert-Wikidata-Object-ISBN/01-use.t
 t/MARC-Convert-Wikidata-Object-ISBN/02-version.t
 t/MARC-Convert-Wikidata-Object-ISBN/03-new.t
@@ -93,6 +101,8 @@ t/MARC-Convert-Wikidata-Object/28-start_time.t
 t/MARC-Convert-Wikidata-Object/29-subtitles.t
 t/MARC-Convert-Wikidata-Object/30-title.t
 t/MARC-Convert-Wikidata-Object/31-translators.t
+xt/MARC-Convert-Wikidata-Object-ExternalId/01-pod_coverage.t
+xt/MARC-Convert-Wikidata-Object-ExternalId/02-pod.t
 xt/MARC-Convert-Wikidata-Object-ISBN/01-pod_coverage.t
 xt/MARC-Convert-Wikidata-Object-ISBN/02-pod.t
 xt/MARC-Convert-Wikidata-Object-Kramerius/01-pod_coverage.t
