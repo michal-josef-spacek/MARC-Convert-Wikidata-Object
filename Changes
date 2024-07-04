@@ -1,6 +1,7 @@
 0.05
  - API change: Add 'external_ids' parameter to People object.
  - Add ExternalId object.
+ - Deprecation of nkcr_aut() method in People object.
 
 0.04 2024-06-25T19:56:28+02:00
  - API change: Add id parameter to Publisher object.

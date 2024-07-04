@@ -176,6 +176,8 @@ Returns string.
 
 =head2 C<nkcr_aut>
 
+I<It is deprecated. It will be removed in future.>
+
  my $nkcr_aut = $obj->nkcr_aut;
 
 Get ID from National Library of the Czech Republic authority database.
