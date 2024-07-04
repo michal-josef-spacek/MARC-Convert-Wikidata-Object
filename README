@@ -254,6 +254,8 @@ METHODS
     instances.
 
   "ccnb"
+    *It is deprecated. It will be removed in future.*
+
      my $ccnb = $obj->ccnb;
 
     Get ČČNB (Česká národní bibliografie) ID.
@@ -377,6 +379,8 @@ METHODS
     TODO
 
   "oclc"
+    *It is deprecated. It will be removed in future.*
+
      my $oclc = $obj->oclc;
 
     Get OCLC control number.

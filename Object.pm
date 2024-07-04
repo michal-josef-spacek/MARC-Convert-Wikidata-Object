@@ -512,6 +512,8 @@ Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
 
 =head2 C<ccnb>
 
+I<It is deprecated. It will be removed in future.>
+
  my $ccnb = $obj->ccnb;
 
 Get ČČNB (Česká národní bibliografie) ID.
@@ -643,6 +645,8 @@ Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
 TODO
 
 =head2 C<oclc>
+
+I<It is deprecated. It will be removed in future.>
 
  my $oclc = $obj->oclc;
 
