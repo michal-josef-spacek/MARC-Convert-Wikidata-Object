@@ -54,11 +54,12 @@ t/MARC-Convert-Wikidata-Object-People/03-new.t
 t/MARC-Convert-Wikidata-Object-People/04-date_of_birth.t
 t/MARC-Convert-Wikidata-Object-People/05-date_of_death.t
 t/MARC-Convert-Wikidata-Object-People/06-external_ids.t
-t/MARC-Convert-Wikidata-Object-People/07-name.t
-t/MARC-Convert-Wikidata-Object-People/08-nkcr_aut.t
-t/MARC-Convert-Wikidata-Object-People/09-surname.t
-t/MARC-Convert-Wikidata-Object-People/10-work_period_start.t
-t/MARC-Convert-Wikidata-Object-People/11-work_period_end.t
+t/MARC-Convert-Wikidata-Object-People/07-full_name.t
+t/MARC-Convert-Wikidata-Object-People/08-name.t
+t/MARC-Convert-Wikidata-Object-People/09-nkcr_aut.t
+t/MARC-Convert-Wikidata-Object-People/10-surname.t
+t/MARC-Convert-Wikidata-Object-People/11-work_period_start.t
+t/MARC-Convert-Wikidata-Object-People/12-work_period_end.t
 t/MARC-Convert-Wikidata-Object-Publisher/01-use.t
 t/MARC-Convert-Wikidata-Object-Publisher/02-version.t
 t/MARC-Convert-Wikidata-Object-Publisher/03-new.t

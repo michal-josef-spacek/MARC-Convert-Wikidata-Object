@@ -42,6 +42,20 @@ has work_period_end => (
 	is => 'ro',
 );
 
+sub full_name {
+	my $self = shift;
+
+	my $full_name = $self->name;
+	if (defined $self->surname) {
+		if ($full_name) {
+			$full_name .= ' ';
+		}
+		$full_name .= $self->surname;
+	}
+
+	return $full_name;
+}
+
 sub BUILD {
 	my $self = shift;
 
@@ -80,6 +94,7 @@ MARC::Convert::Wikidata::Object::People - Bibliographic Wikidata object for peop
  my $date_of_birth = $obj->date_of_birth;
  my $date_of_death = $obj->date_of_death;
  my $external_ids_ar = $obj->external_ids;
+ my $full_name = $obj->full_name;
  my $name = $obj->name;
  my $nkcr_aut = $obj->nkcr_aut;
  my $surname = $obj->surname;
@@ -165,6 +180,14 @@ Returns string.
 Get list of external ids.
 
 Returns reference to array with L<MARC::Convert::Wikidata::Object::ExternalId> instances.
+
+=head2 C<full_name>
+
+ my $full_name = $obj->full_name;
+
+Get full name.
+
+Returns string.
 
 =head2 C<name>
 
