@@ -26,10 +26,6 @@ has name => (
 	is => 'ro',
 );
 
-has nkcr_aut => (
-	is => 'ro',
-);
-
 has surname => (
 	is => 'ro',
 );
@@ -96,7 +92,6 @@ MARC::Convert::Wikidata::Object::People - Bibliographic Wikidata object for peop
  my $external_ids_ar = $obj->external_ids;
  my $full_name = $obj->full_name;
  my $name = $obj->name;
- my $nkcr_aut = $obj->nkcr_aut;
  my $surname = $obj->surname;
  my $work_period_start = $obj->work_period_start;
  my $work_period_end = $obj->work_period_end;
@@ -140,12 +135,6 @@ Default value is [].
 =item * C<name>
 
 Given name of people.
-
-Default value is undef.
-
-=item * C<nkcr_aut>
-
-ID in National library of the Czech Republic authority database.
 
 Default value is undef.
 
@@ -194,16 +183,6 @@ Returns string.
  my $name = $obj->name;
 
 Get given name.
-
-Returns string.
-
-=head2 C<nkcr_aut>
-
-I<It is deprecated. It will be removed in future.>
-
- my $nkcr_aut = $obj->nkcr_aut;
-
-Get ID from National Library of the Czech Republic authority database.
 
 Returns string.
 
