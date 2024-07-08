@@ -3,6 +3,11 @@ examples/create_and_dump_external_id.pl
 examples/create_and_dump_isbn.pl
 examples/create_and_dump_kramerius.pl
 examples/create_and_dump_people.pl
+examples/create_and_dump_publication_date1.pl
+examples/create_and_dump_publication_date2.pl
+examples/create_and_dump_publication_date3.pl
+examples/create_and_dump_publication_date4.pl
+examples/create_and_dump_publication_date5.pl
 examples/create_and_dump_publisher.pl
 examples/create_and_dump_series.pl
 examples/create_and_dump_wikidata_object.pl
@@ -26,6 +31,7 @@ Object/ExternalId.pm
 Object/ISBN.pm
 Object/Kramerius.pm
 Object/People.pm
+Object/PublicationDate.pm
 Object/Publisher.pm
 Object/Series.pm
 README
@@ -59,6 +65,16 @@ t/MARC-Convert-Wikidata-Object-People/08-name.t
 t/MARC-Convert-Wikidata-Object-People/09-surname.t
 t/MARC-Convert-Wikidata-Object-People/10-work_period_start.t
 t/MARC-Convert-Wikidata-Object-People/11-work_period_end.t
+t/MARC-Convert-Wikidata-Object-PublicationDate/01-use.t
+t/MARC-Convert-Wikidata-Object-PublicationDate/02-version.t
+t/MARC-Convert-Wikidata-Object-PublicationDate/03-new.t
+t/MARC-Convert-Wikidata-Object-PublicationDate/04-copyright.t
+t/MARC-Convert-Wikidata-Object-PublicationDate/05-date.t
+t/MARC-Convert-Wikidata-Object-PublicationDate/06-earliest_date.t
+t/MARC-Convert-Wikidata-Object-PublicationDate/07-end_time.t
+t/MARC-Convert-Wikidata-Object-PublicationDate/08-latest_date.t
+t/MARC-Convert-Wikidata-Object-PublicationDate/09-sourcing_circumstances.t
+t/MARC-Convert-Wikidata-Object-PublicationDate/10-start_time.t
 t/MARC-Convert-Wikidata-Object-Publisher/01-use.t
 t/MARC-Convert-Wikidata-Object-Publisher/02-version.t
 t/MARC-Convert-Wikidata-Object-Publisher/03-new.t
@@ -109,6 +125,8 @@ xt/MARC-Convert-Wikidata-Object-Kramerius/01-pod_coverage.t
 xt/MARC-Convert-Wikidata-Object-Kramerius/02-pod.t
 xt/MARC-Convert-Wikidata-Object-People/01-pod_coverage.t
 xt/MARC-Convert-Wikidata-Object-People/02-pod.t
+xt/MARC-Convert-Wikidata-Object-PublicationDate/01-pod_coverage.t
+xt/MARC-Convert-Wikidata-Object-PublicationDate/02-pod.t
 xt/MARC-Convert-Wikidata-Object-Publisher/01-pod_coverage.t
 xt/MARC-Convert-Wikidata-Object-Publisher/02-pod.t
 xt/MARC-Convert-Wikidata-Object-Series/01-pod_coverage.t
