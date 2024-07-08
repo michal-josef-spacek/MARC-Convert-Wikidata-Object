@@ -9,7 +9,8 @@ TODO
 16. Remove TODOs from doc.
 18. Control of publication_date value? Not controlled now.
 19. Object has start_time with check_number(). Is it ok?
-20.
+20. Add tests for errors in PublicationDate.
+21.
 
 Applied
 =======
