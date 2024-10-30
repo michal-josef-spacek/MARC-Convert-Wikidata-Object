@@ -45,9 +45,10 @@ t/MARC-Convert-Wikidata-Object-ExternalId/06-value.t
 t/MARC-Convert-Wikidata-Object-ISBN/01-use.t
 t/MARC-Convert-Wikidata-Object-ISBN/02-version.t
 t/MARC-Convert-Wikidata-Object-ISBN/03-new.t
-t/MARC-Convert-Wikidata-Object-ISBN/04-cover.t
-t/MARC-Convert-Wikidata-Object-ISBN/05-isbn.t
-t/MARC-Convert-Wikidata-Object-ISBN/06-type.t
+t/MARC-Convert-Wikidata-Object-ISBN/04-collective.t
+t/MARC-Convert-Wikidata-Object-ISBN/05-cover.t
+t/MARC-Convert-Wikidata-Object-ISBN/06-isbn.t
+t/MARC-Convert-Wikidata-Object-ISBN/07-type.t
 t/MARC-Convert-Wikidata-Object-Kramerius/01-use.t
 t/MARC-Convert-Wikidata-Object-Kramerius/02-version.t
 t/MARC-Convert-Wikidata-Object-Kramerius/03-new.t
