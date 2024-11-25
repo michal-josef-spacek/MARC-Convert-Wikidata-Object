@@ -8,6 +8,10 @@ use Mo::utils 0.08 qw(check_isa check_required);
 
 our $VERSION = 0.09;
 
+has issn => (
+	is => 'ro',
+);
+
 has name => (
 	is => 'ro',
 );
@@ -47,6 +51,7 @@ MARC::Convert::Wikidata::Object::Series - Bibliographic Wikidata object for seri
  use MARC::Convert::Wikidata::Object::Series;
 
  my $obj = MARC::Convert::Wikidata::Object::Series->new(%params);
+ my $issn = $obj->issn;
  my $name = $obj->name;
  my $publisher = $obj->publisher;
  my $series_ordinal = $obj->series_ordinal;
@@ -62,6 +67,12 @@ Constructor.
 Returns instance of object.
 
 =over 8
+
+=item * C<issn>
+
+ISSN of series.
+
+Parameter is optional.
 
 =item * C<name>
 
