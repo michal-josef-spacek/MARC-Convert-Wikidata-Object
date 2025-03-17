@@ -1,4 +1,5 @@
 0.10
+ - Add 'valid' parameter to ISBN object.
  - Update copyright years.
 
 0.09 2024-11-25T17:22:53+01:00
