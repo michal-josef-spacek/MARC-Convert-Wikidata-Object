@@ -11,7 +11,9 @@ TODO
 19. Object has start_time with check_number(). Is it ok?
 20. Add tests for errors in PublicationDate.
 21. Compose PublicationDate object to main object.
-23.
+23. Check Work title language.
+24. Add tests for Work.
+25.
 
 Applied
 =======
