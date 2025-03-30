@@ -1,4 +1,5 @@
 0.12
+ - API change: Add 'edition_of_work' parameter to Object.
  - Add Work object.
  - Add title to Object example in doc.
 
