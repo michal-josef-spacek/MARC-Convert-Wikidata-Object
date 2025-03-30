@@ -1,4 +1,4 @@
-0.12
+0.12 2025-03-30T15:12:57+02:00
  - API change: Add 'edition_of_work' parameter to Object.
  - Add Work object.
  - Add title to Object example in doc.
