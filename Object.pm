@@ -791,6 +791,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
          'isbns' => [$isbn],
          'number_of_pages' => 414,
          'publishers' => [$publisher],
+         'title' => decode_utf8('Dějiny města Příbora'),
  );
  
  p $obj;
@@ -825,7 +826,8 @@ Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
  #         number_of_pages       414,
  #         publishers            [
  #             [0] MARC::Convert::Wikidata::Object::Publisher
- #         ]
+ #         ],
+ #         title                 "Dějiny města Příbora"
  #     }
  # }
 

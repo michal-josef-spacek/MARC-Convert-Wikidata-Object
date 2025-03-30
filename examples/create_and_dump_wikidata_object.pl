@@ -50,6 +50,7 @@ my $obj = MARC::Convert::Wikidata::Object->new(
         'isbns' => [$isbn],
         'number_of_pages' => 414,
         'publishers' => [$publisher],
+        'title' => decode_utf8('Dějiny města Příbora'),
 );
 
 p $obj;
@@ -84,6 +85,7 @@ p $obj;
 #         number_of_pages       414,
 #         publishers            [
 #             [0] MARC::Convert::Wikidata::Object::Publisher
-#         ]
+#         ],
+#         title                 "Dějiny města Příbora"
 #     }
 # }

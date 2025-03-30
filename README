@@ -517,6 +517,7 @@ EXAMPLE1
              'isbns' => [$isbn],
              'number_of_pages' => 414,
              'publishers' => [$publisher],
+             'title' => decode_utf8('Dějiny města Příbora'),
      );
  
      p $obj;
@@ -551,7 +552,8 @@ EXAMPLE1
      #         number_of_pages       414,
      #         publishers            [
      #             [0] MARC::Convert::Wikidata::Object::Publisher
-     #         ]
+     #         ],
+     #         title                 "Dějiny města Příbora"
      #     }
      # }
 
