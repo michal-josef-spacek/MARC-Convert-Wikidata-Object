@@ -6,7 +6,7 @@ use warnings;
 use Mo qw(build default is);
 use Mo::utils 0.21 qw(check_array_object check_isa check_required);
 
-our $VERSION = 0.13;
+our $VERSION = 0.14;
 
 has author => (
 	is => 'ro',
@@ -237,6 +237,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.13
+0.14
 
 =cut
