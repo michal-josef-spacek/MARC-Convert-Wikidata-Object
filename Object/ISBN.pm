@@ -12,7 +12,7 @@ use Readonly;
 
 Readonly::Array our @COVERS => qw(hardback paperback);
 
-our $VERSION = 0.14;
+our $VERSION = 0.15;
 
 has collective => (
 	is => 'ro',
@@ -294,6 +294,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.14
+0.15
 
 =cut
