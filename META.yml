@@ -30,6 +30,7 @@ requires:
   List::Util: 0
   Mo: 0
   Mo::utils: 0.26
+  Mo::utils::Array: 0
   Mo::utils::Date: 0.04
   Readonly: 0
   perl: 5.6.2

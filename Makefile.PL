@@ -24,6 +24,7 @@ requires 'List::MoreUtils' => 0;
 requires 'List::Util' => 0;
 requires 'Mo' => 0;
 requires 'Mo::utils' => 0.26;
+requires 'Mo::utils::Array' => 0;
 requires 'Mo::utils::Date' => 0.04;
 requires 'Readonly' => 0;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/MARC-Convert-Wikidata-Object/issues',
