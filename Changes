@@ -1,5 +1,6 @@
 0.14
  - Move check_array* to Mo::utils::Array.
+ - Rewrite to use of List::Util.
 
 0.13 2025-03-31T22:28:23+02:00
  - API change: Add 'covers' parameter.

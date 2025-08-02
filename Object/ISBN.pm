@@ -7,7 +7,7 @@ use Business::ISBN;
 use Error::Pure qw(err);
 use Mo qw(build is);
 use Mo::utils 0.08 qw(check_bool check_isa check_required);
-use List::Util qw(none);
+use List::Util 1.33 qw(none);
 use Readonly;
 
 Readonly::Array our @COVERS => qw(hardback paperback);

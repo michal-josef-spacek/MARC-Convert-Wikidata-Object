@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Error::Pure qw(err);
-use List::MoreUtils qw(none);
+use List::Util 1.33 qw(none);
 use Mo qw(build default is);
 use Mo::utils 0.26 qw(check_isa check_number);
 use Mo::utils::Array qw(check_array check_array_object);
@@ -863,7 +863,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
  #         BUILD, full_name
  #         Error::Pure:
  #             err
- #         List::MoreUtils::XS:
+ #         List::Util:
  #             none
  #         Mo::utils:
  #             check_isa, check_number
@@ -898,7 +898,7 @@ Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
 =head1 DEPENDENCIES
 
 L<Error::Pure>,
-L<List::MoreUtils>,
+L<List::Util>,
 L<Mo>,
 L<Mo::utils>,
 L<Mo::utils::Array>,

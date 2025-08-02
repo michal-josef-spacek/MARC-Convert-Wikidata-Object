@@ -67,7 +67,7 @@ p $obj;
 #         BUILD, full_name
 #         Error::Pure:
 #             err
-#         List::MoreUtils::XS:
+#         List::Util:
 #             none
 #         Mo::utils:
 #             check_isa, check_number

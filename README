@@ -579,7 +579,7 @@ EXAMPLE1
      #         BUILD, full_name
      #         Error::Pure:
      #             err
-     #         List::MoreUtils::XS:
+     #         List::Util:
      #             none
      #         Mo::utils:
      #             check_isa, check_number
@@ -612,7 +612,7 @@ EXAMPLE1
      # }
 
 DEPENDENCIES
-    Error::Pure, List::MoreUtils, Mo, Mo::utils, Mo::utils::Array, Readonly.
+    Error::Pure, List::Util, Mo, Mo::utils, Mo::utils::Array, Readonly.
 
 SEE ALSO
     MARC::Convert::Wikidata
