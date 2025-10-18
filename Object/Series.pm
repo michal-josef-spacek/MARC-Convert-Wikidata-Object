@@ -24,6 +24,10 @@ has series_ordinal => (
 	is => 'ro',
 );
 
+has series_ordinal_raw => (
+	is => 'ro',
+);
+
 sub BUILD {
 	my $self = shift;
 
@@ -57,6 +61,7 @@ MARC::Convert::Wikidata::Object::Series - Bibliographic Wikidata object for seri
  my $name = $obj->name;
  my $publisher = $obj->publisher;
  my $series_ordinal = $obj->series_ordinal;
+ my $series_ordinal_raw = $obj->series_ordinal_raw;
 
 =head1 METHODS
 
@@ -94,6 +99,12 @@ Series ordinal.
 
 Default value is undef.
 
+=item * C<series_ordinal_raw>
+
+Series ordinal raw string.
+
+Default value is undef.
+
 =back
 
 =head2 C<name>
@@ -117,6 +128,14 @@ Returns L<MARC::Convert::Wikidata::Object::Publisher> object.
  my $series_ordinal = $obj->series_ordinal;
 
 Get series ordinal.
+
+Returns number.
+
+=head2 C<series_ordinal_raw>
+
+ my $series_ordinal_raw = $obj->series_ordinal_raw;
+
+Get series ordinal raw string.
 
 Returns string.
 
@@ -148,6 +167,7 @@ Returns string.
                  'name' => decode_utf8('Mladá Fronta'),
          ),
          'series_ordinal' => 5,
+         'series_ordinal_raw' => 'kn. 5',
  );
  
  p $obj;
