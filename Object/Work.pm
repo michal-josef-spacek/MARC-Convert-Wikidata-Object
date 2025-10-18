@@ -29,13 +29,13 @@ has title_language => (
 sub BUILD {
 	my $self = shift;
 
-	# Check author.
+	# Check 'author'.
 	check_isa($self, 'author', 'MARC::Convert::Wikidata::Object::People');
 
-	# Check external_ids.
+	# Check 'external_ids'.
 	check_array_object($self, 'external_ids', 'MARC::Convert::Wikidata::Object::ExternalId');
 
-	# Check title.
+	# Check 'title'.
 	check_required($self, 'title');
 
 	return;

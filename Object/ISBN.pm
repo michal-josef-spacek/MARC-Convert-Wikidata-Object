@@ -47,27 +47,30 @@ sub type {
 sub BUILD {
 	my $self = shift;
 
+	# Check 'collective'.
 	if (! defined $self->{'collective'}) {
 		$self->{'collective'} = 0;
 	}
 	check_bool($self, 'collective');
 
-	check_required($self, 'isbn');
-
-	$self->{'_isbn'} = Business::ISBN->new($self->{'isbn'});
-	if (! defined $self->{'_isbn'} || ! $self->{'_isbn'}->is_valid) {
-		err "ISBN '$self->{'isbn'}' isn't valid.";
-	}
-
-	check_isa($self, 'publisher', 'MARC::Convert::Wikidata::Object::Publisher');
-
+	# Check 'cover'.
 	if (defined $self->{'cover'}) {
 		if (none { $self->{'cover'} eq $_ } @COVERS) {
 			err "ISBN cover '$self->{'cover'}' isn't valid.";
 		}
 	}
 
-	# Check valid.
+	# Check 'isbn'.
+	check_required($self, 'isbn');
+	$self->{'_isbn'} = Business::ISBN->new($self->{'isbn'});
+	if (! defined $self->{'_isbn'} || ! $self->{'_isbn'}->is_valid) {
+		err "ISBN '$self->{'isbn'}' isn't valid.";
+	}
+
+	# Check 'publisher'.
+	check_isa($self, 'publisher', 'MARC::Convert::Wikidata::Object::Publisher');
+
+	# Check 'valid'.
 	if (! defined $self->{'valid'}) {
 		$self->{'valid'} = 1;
 	}

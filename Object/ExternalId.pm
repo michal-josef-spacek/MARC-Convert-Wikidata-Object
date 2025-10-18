@@ -26,14 +26,17 @@ has value => (
 sub BUILD {
 	my $self = shift;
 
+	# Check 'deprecated'.
 	if (! $self->{'deprecated'}) {
 		$self->{'deprecated'} = 0;
 	}
 	check_bool($self, 'deprecated');
 
+	# Check 'name'.
 	check_required($self, 'name');
 	check_strings($self, 'name', \@NAMES);
 
+	# Check 'value'.
 	check_required($self, 'value');
 
 	return;

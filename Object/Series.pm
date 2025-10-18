@@ -27,8 +27,10 @@ has series_ordinal => (
 sub BUILD {
 	my $self = shift;
 
+	# Check 'name'.
 	check_required($self, 'name');
 
+	# Check 'publisher'.
 	check_isa($self, 'publisher', 'MARC::Convert::Wikidata::Object::Publisher');
 
 	return;

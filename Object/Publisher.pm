@@ -29,10 +29,10 @@ has place => (
 sub BUILD {
 	my $self = shift;
 
-	# Check external_ids.
+	# Check 'external_ids'.
 	check_array_object($self, 'external_ids', 'MARC::Convert::Wikidata::Object::ExternalId');
 
-	# Check name.
+	# Check 'name'.
 	check_required($self, 'name');
 
 	return;

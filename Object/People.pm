@@ -55,16 +55,25 @@ sub full_name {
 sub BUILD {
 	my $self = shift;
 
+	# Check 'date_of_birth'.
 	check_date($self, 'date_of_birth');
+
+	# Check 'date_of_death'.
 	check_date($self, 'date_of_death');
 
+	# Check date order.
 	check_date_order($self, 'date_of_birth', 'date_of_death');
 
+	# Check 'external_ids'.
 	check_array_object($self, 'external_ids', 'MARC::Convert::Wikidata::Object::ExternalId');
 
+	# Check 'work_period_start'.
 	check_date($self, 'work_period_start');
+
+	# Check 'work_period_end'.
 	check_date($self, 'work_period_end');
 
+	# Check date workd date order.
 	check_date_order($self, 'work_period_start', 'work_period_end');
 
 	return;

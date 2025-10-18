@@ -63,26 +63,34 @@ sub BUILD {
 	_check_conflict($self, 'precision', 'earliest_date');
 	_check_conflict($self, 'precision', 'latest_date');
 
+	# Check 'copyright'.
 	if (! defined $self->{'copyright'}) {
 		$self->{'copyright'} = 0;
 	}
 	check_bool($self, 'copyright');
 
+	# Check 'date'.
 	check_date($self, 'date');
 
+	# Check 'earliest_date'.
 	check_date($self, 'earliest_date');
 
+	# Check 'end_time'.
 	check_date($self, 'end_time');
 
+	# Check 'latest_date'.
 	check_date($self, 'latest_date');
 
+	# Check 'precision'.
 	if (! defined $self->{'precision'} && defined $self->{'date'}) {
 		$self->{'precision'} = 'day';
 	}
 	check_strings($self, 'precision', \@PRECISION);
 
+	# Check 'sourcing_circumstances'.
 	check_strings($self, 'sourcing_circumstances', \@SOURCING_CIRCUMSTANCES);
 
+	# Check 'start_time'.
 	check_date($self, 'start_time');
 
 	return;
