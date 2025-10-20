@@ -3,6 +3,7 @@ package MARC::Convert::Wikidata::Object::Series;
 use strict;
 use warnings;
 
+use Error::Pure qw(err);
 use Mo qw(build is);
 use Mo::utils 0.08 qw(check_isa check_required);
 
@@ -36,6 +37,19 @@ sub BUILD {
 
 	# Check 'publisher'.
 	check_isa($self, 'publisher', 'MARC::Convert::Wikidata::Object::Publisher');
+
+	# Check 'series_ordinal'.
+	if (defined $self->{'series_ordinal'}
+		&& $self->{'series_ordinal'} !~ m/^\d+$/ms
+		&& $self->{'series_ordinal'} !~ m/^\d+\-\d+$/ms
+		&& $self->{'series_ordinal'} !~ m/^(?i)M{0,3}(CM|CD|D?C{0,3})
+			(XC|XL|L?X{0,3})
+			(IX|IV|V?I{0,3})$/x) {
+
+		err "Parameter 'series_ordinal' has bad value.",
+			'Value', $self->{'series_ordinal'},
+		;
+	}
 
 	return;
 }
@@ -97,6 +111,8 @@ Default value is undef.
 
 Series ordinal.
 
+Could be a number, range of numbers or roman number.
+
 Default value is undef.
 
 =item * C<series_ordinal_raw>
@@ -148,6 +164,8 @@ Returns string.
                          Reference: %s
          From Mo::utils::check_required():
                  Parameter 'name' is required.
+         Parameter 'series_ordinal' has bad value.
+                 Value: %s
 
 =head1 EXAMPLE1
 
