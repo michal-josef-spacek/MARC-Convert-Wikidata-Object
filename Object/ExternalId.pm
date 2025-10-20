@@ -9,7 +9,7 @@ use Readonly;
 
 Readonly::Array our @NAMES => qw(cnb lccn nkcr_aut);
 
-our $VERSION = 0.15;
+our $VERSION = 0.16;
 
 has deprecated => (
 	is => 'ro',
@@ -219,6 +219,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.15
+0.16
 
 =cut
