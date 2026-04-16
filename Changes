@@ -1,4 +1,5 @@
 0.16
+ - Fix test for translators() method.
 
 0.15 2025-10-21T00:17:01+02:00
  - Add 'series_ordinal_raw' parameter.
