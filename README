@@ -482,6 +482,9 @@ ERRORS
                      Parameter 'subtitles' must be a array.
                              Value: %s
                              Reference: %s
+                     Parameter 'udcs' must be a array.
+                             Value: %s
+                             Reference: %s
 
              From Mo::utils::Array::check_array_object():
                      Parameter 'authors' must be a array.

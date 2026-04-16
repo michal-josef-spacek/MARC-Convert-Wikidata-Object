@@ -149,6 +149,11 @@ has translators => (
 	is => 'ro',
 );
 
+has udcs => (
+	default => [],
+	is => 'ro',
+);
+
 sub full_name {
 	my $self = shift;
 
@@ -242,6 +247,10 @@ sub BUILD {
 	# Check 'translators'.
 	check_array_object($self, 'translators',
 		'MARC::Convert::Wikidata::Object::People', 'Translator');
+
+	# Check 'udcs'.
+	check_array($self, 'udcs');
+	# TODO UDC check.
 
 	return;
 }
@@ -763,6 +772,9 @@ Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
                  Parameter 'subtitles' must be a array.
                          Value: %s
                          Reference: %s
+                 Parameter 'udcs' must be a array.
+                         Value: %s
+                         Reference: %s
 
          From Mo::utils::Array::check_array_object():
                  Parameter 'authors' must be a array.
@@ -852,6 +864,10 @@ Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
          'number_of_pages' => 414,
          'publishers' => [$publisher],
          'title' => decode_utf8('Dějiny města Příbora'),
+         'udcs' => [
+                 '94(437.326)',
+                 '(048.8)',
+         ],
  );
  
  p $obj;
@@ -892,6 +908,10 @@ Returns reference to array of MARC::Convert::Wikidata::Object::People instances.
  #             [0] MARC::Convert::Wikidata::Object::Publisher
  #         ],
  #         title                 "Dějiny města Příbora"
+ #         udcs                  [
+ #             [0] "94(437.326)" (dualvar: 94),
+ #             [1] "(048.8)"
+ #         ]
  #     }
  # }
 
